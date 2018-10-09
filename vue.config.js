@@ -9,4 +9,13 @@ module.exports = {
       },
     },
   },
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'sass',
+      patterns: [
+        path.resolve(__dirname, 'src/assets/stylesheets/index.sass'),
+        path.resolve(__dirname, 'src/assets/stylesheets/lib/index.sass'),
+      ],
+    },
+  },
 };
