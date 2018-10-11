@@ -3,10 +3,10 @@ import App from './App.vue';
 import store from './store';
 import router from './router';
 
-Vue.config.productionTip = false;
+// Stylesheets
+import '@stylesheets/index.sass';
 
-import Icon from './components/global/Icon.vue';
-Vue.component('app-icon', Icon);
+Vue.config.productionTip = false;
 
 new Vue({
   store,
