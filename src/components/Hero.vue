@@ -37,12 +37,12 @@ export default {
 
 <style lang="sass">
 .app-hero
-  $padding: 1.5rem
+  $padding: 38px
 
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-template-areas: "content image"
-  height: 100vh
+  height: 970px
 
   .content
     grid-area: content
@@ -53,7 +53,7 @@ export default {
     .logo
       background-color: black
 
-      +circle(32px)
+      +circle(42px)
       +p-absolute(null, $padding, null, null, $padding)
     
     .social-media-container
@@ -63,6 +63,8 @@ export default {
 
       & > div:first-child
         font-family: $f-family-secondary
+        font-weight: 400
+        font-size: 14pt
         white-space: nowrap
         position: absolute
         transform: rotate(-90deg)
@@ -80,7 +82,11 @@ export default {
     +background-image
 
 .we-are
-  font-weight: 600
+  $translation: 75%
+
+  font-weight: 700
+  font-size: 21pt
+  transform: translateX($translation / 2)
 
   div:first-child
     position: relative
@@ -88,13 +94,14 @@ export default {
 
     &::before
       font-family: $f-family-secondary
-      font-weight: 500
+      font-weight: 700
       font-style: italic
+      font-size: 14pt
       content: 'Somos'
       border-bottom: 1px solid $c-primary
       position: absolute
-      left: -100%
+      left: -$translation
       bottom: 50%
-      width: 200%
+      width: 100% + $translation
       
 </style>
