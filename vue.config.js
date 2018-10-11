@@ -9,6 +9,9 @@ module.exports = {
 
         '@components': path.resolve(__dirname, 'src/components'),
         '@views': path.resolve(__dirname, 'src/views'),
+
+        '@router': path.resolve(__dirname, 'src/router/router'),
+        '@store': path.resolve(__dirname, 'src/store/store'),
       },
     },
   },
