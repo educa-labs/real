@@ -1,5 +1,5 @@
 <template>
-  <div v-sticky="{ zIndex: 0, disabled: false }" class="app-navbar">
+  <div v-sticky="{ zIndex: 0, disabled: true }" class="app-navbar">
     <div>
       <router-link to="/">
         <div class="logo">Logo</div>
