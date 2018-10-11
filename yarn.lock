@@ -10619,6 +10619,11 @@ vue-router@^3.0.1:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
   integrity sha512-vLLoY452L+JBpALMP5UHum9+7nzR9PeIBCghU9ZtJ1eWm6ieUI8Zb/DI3MYxH32bxkjzYV1LRjNv4qr8d+uX/w==
 
+vue-sticky@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/vue-sticky/-/vue-sticky-3.3.4.tgz#d06288c4d28cfefdc7037e90b2ce51e5b51585c9"
+  integrity sha512-7Hcvw7MjzyQo3/rb2R2LvuxiIymJv49Gg6pXslFDjTr7UZoFxFvp8QYG1WFfKuk8V8eZHRKi1QD5dxRMQkm2OQ==
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
