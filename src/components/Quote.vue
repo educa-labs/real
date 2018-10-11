@@ -1,6 +1,6 @@
 <template>
   <div class="app-quote">
-    <div class="content">{{ content }}</div>
+    <div class="quote">{{ quote }}</div>
     <div class="separator"/>
   </div>
 </template>
@@ -9,24 +9,22 @@
 export default {
   data() {
     return {
-      content: `Diseñamos estratégicamente, construimos visualmente.
-    Lo hacemos para sorprender, comunicar, y crear valor.`
+      quote: `Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.`
     }
   }
 }
 </script>
 
-
 <style lang="sass">
 .app-quote
-  padding: 2rem
-
   .content
-    width: 300px
+    font-family: $f-family-secondary
+    font-size: 16pt
+    width: 462px
 
   .separator
     width: 75px
-    height: 3px
+    height: 2px
     background-color: $c-primary
     margin-top: 2rem
 </style>
