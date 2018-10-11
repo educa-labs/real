@@ -6,6 +6,10 @@ import router from '@router';
 // Stylesheets
 import '@stylesheets/index.sass';
 
+// Vue ScrollTo
+import VueScrollTo from 'vue-scrollto';
+Vue.use(VueScrollTo)
+
 Vue.config.productionTip = false;
 
 new Vue({

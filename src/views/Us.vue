@@ -62,6 +62,8 @@ export default {
   methods: {
     selectDesigner(index) {
       this.selected = index
+
+      this.$scrollTo('.designer');
     }
   }
 }
