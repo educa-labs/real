@@ -1,14 +1,26 @@
 <template>
   <div :class="{ vertical }" class="app-social-media">
-    <img src="@images/instagram.svg">
+    <a :href="instagram">
+      <img src="@images/instagram.svg">
+    </a>
     <div class="separator"/>
-    <img src="@images/linkedin.svg">
+    <a :href="linkedin">
+      <img src="@images/linkedin.svg">
+    </a>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    instagram: {
+      type: String,
+      default: '',
+    },
+    linkedin: {
+      type: String,
+      default: '',
+    },
     vertical: {
       type: Boolean,
       default: false,
