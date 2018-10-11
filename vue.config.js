@@ -4,6 +4,9 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
+        '@images': path.resolve(__dirname, 'src/assets/images'),
+        '@stylesheets': path.resolve(__dirname, 'src/assets/stylesheets'),
+
         '@components': path.resolve(__dirname, 'src/components'),
         '@views': path.resolve(__dirname, 'src/views'),
       },
@@ -13,7 +16,6 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'sass',
       patterns: [
-        path.resolve(__dirname, 'src/assets/stylesheets/index.sass'),
         path.resolve(__dirname, 'src/assets/stylesheets/lib/index.sass'),
       ],
     },
