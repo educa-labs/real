@@ -7,10 +7,21 @@
         <app-social-media :vertical="true"/>
       </div>
       <div class="we-are">
-        <div v-for="(item, index) in items" :key="`item-${index}`">{{item}}</div>
+        <div
+          v-for="(concept, index) in concepts"
+          :key="`concept-${index}`"
+          :class="{active: selected === index}"
+          @mouseover="selected = index"
+        >{{concept.name}}</div>
       </div>
     </div>
-    <div :style="{ 'background-image': `url(${image})` }" class="image"/>
+    <div
+      v-if="selected === index"
+      v-for="(concept, index) in concepts"
+      :key="`concept-${index}`"
+      :style="{ 'background-image': `url(${concept.image})` }"
+      class="image"
+    />
   </div>
 </template>
 
@@ -21,17 +32,17 @@ export default {
   components: { 'app-social-media': SocialMedia },
   data() {
     return {
-      items: [
-        'proceso',
-        'concepto',
-        'imaginario',
-        'experimentación',
-        'color',
-        'estrategia',
+      concepts: [
+        { name: 'proceso', image: require('@images/image.jpg') },
+        { name: 'concepto', image: require('@images/image.jpg') },
+        { name: 'imaginario', image: require('@images/image.jpg') },
+        { name: 'experimentación', image: require('@images/image.jpg') },
+        { name: 'color', image: require('@images/image.jpg') },
+        { name: 'estrategia', image: require('@images/image.jpg') },
       ],
-      image: require('@images/image.jpg'),
+      selected: 0,
     }
-  }
+  },
 }
 </script>
 
@@ -88,20 +99,22 @@ export default {
   font-size: 21pt
   transform: translateX($translation / 2)
 
-  div:first-child
-    position: relative
-    display: inline-block
+  div
+    cursor: pointer
 
-    &::before
-      font-family: $f-family-secondary
-      font-weight: 700
-      font-style: italic
-      font-size: 14pt
-      content: 'Somos'
-      border-bottom: 1px solid $c-primary
-      position: absolute
-      left: -$translation
-      bottom: 50%
-      width: 100% + $translation
-      
+    &.active
+      position: relative
+      display: inline-block
+
+      &::before
+        font-family: $f-family-secondary
+        font-weight: 700
+        font-style: italic
+        font-size: 14pt
+        content: 'Somos'
+        border-bottom: 1px solid $c-primary
+        position: absolute
+        left: -80px
+        bottom: 50%
+        width: 100% + $translation
 </style>
