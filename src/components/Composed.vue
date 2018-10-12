@@ -11,14 +11,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      designers: [
-        { nickname: 'Peli', image: require('@images/image.jpg') },
-        { nickname: 'Cintia', image: require('@images/image.jpg') },
-        { nickname: 'Ferni', image: require('@images/image.jpg') },
-        { nickname: 'Trini', image: require('@images/image.jpg') },
-      ]
+  props: {
+    designers: {
+      type: Array,
+      required: true,
     }
   }
 }
@@ -27,8 +23,11 @@ export default {
 <style lang="sass">
 .app-composed
   div
-    height: 33vh
-    padding: 16px 32px
+    font-weight: 600
+    font-size: 40pt
+    height: 400px
+    padding: 16px 64px
+    color: $c-white
 
     +background-image
     +d-flex(flex-end, flex-start)
