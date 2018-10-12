@@ -1,21 +1,23 @@
 <template>
-  <div v-sticky="{ zIndex: 0, disabled: true }" class="app-navbar">
-    <div>
+  <div v-sticky="{ zIndex: 0, disabled: true }">
+    <div class="app-navbar">
       <router-link to="/">
         <div class="logo">Logo</div>
       </router-link>
-      <router-link to="/us">
-        <app-button>Nosotros</app-button>
-      </router-link>
-      <router-link to="/portfolio">
-        <app-button>Trabajo</app-button>
-      </router-link>
-      <router-link to="/methodology">
-        <app-button>Metodología</app-button>
-      </router-link>
-      <router-link to="/contact">
-        <app-button>Contacto</app-button>
-      </router-link>
+      <div>
+        <router-link to="/us">
+          <div>Nosotros</div>
+        </router-link>
+        <router-link to="/portfolio">
+          <div>Trabajo</div>
+        </router-link>
+        <router-link to="/methodology">
+          <div>Metodología</div>
+        </router-link>
+        <router-link to="/contact">
+          <div>Contacto</div>
+        </router-link>
+      </div>
       <div class="e-mail">hola@somosreal.cl</div>
     </div>
   </div>
@@ -36,5 +38,20 @@ export default {
 .app-navbar
   width: 100%
   height: 96px
-  background-color: c-gray(300)
+  padding: 0 48px
+  background-color: $c-white
+  
+  +d-flex(center, space-between)
+
+.app-navbar > div
+  +d-flex(center)
+
+  a
+    margin-left: 128px
+
+  a:first-child
+    margin-left: 0
+
+.app-navbar .e-mail
+  font-size: 11pt
 </style>
