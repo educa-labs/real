@@ -41,6 +41,8 @@ export default {
   display: grid
   grid-template-columns: repeat(3, 1fr)
   justify-items: center
+  font-size: 14pt
+  font-weight: 700
 
   .e-mail
     margin-bottom: 32px

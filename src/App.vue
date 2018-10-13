@@ -14,3 +14,8 @@ export default {
   }  
 }
 </script>
+
+<style lang="sass">
+.app-footer
+  margin: 96px 0
+</style>

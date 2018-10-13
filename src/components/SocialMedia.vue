@@ -7,8 +7,10 @@
     <a :href="linkedin">
       <img src="@images/linkedin.svg">
     </a>
-    <div class="separator"/>
-    <a v-if="tumblr" :href="tumblr">visita sus referencias</a>
+    <template v-if="tumblr">
+      <div class="separator"/>
+      <a>visita sus referencias</a>
+    </template>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
     },
     tumblr: {
       type: String,
-      default: 'https://www.tumblr.com',
+      default: '',
     },
     vertical: {
       type: Boolean,

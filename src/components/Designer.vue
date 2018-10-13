@@ -4,7 +4,7 @@
       <div class="nickname">{{designer.nickname}}</div>
       <div class="description">{{designer.description}}</div>
       <div class="e-mail">{{ designer.eMail }}</div>
-      <app-social-media :instagram="designer.instagram" :linkedin="designer.linkedin"/>
+      <app-social-media :instagram="designer.instagram" :linkedin="designer.linkedin" tumblr="https://www.tumblr.com"/>
     </div>
     <div :style="{ 'background-image': `url(${designer.image})` }" class="image"/>
   </div>
