@@ -9,6 +9,9 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
+    "animejs": "^2.2.0",
+    "jsplumb": "^2.8.0",
+    "underscore": "^1.9.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-scroll-reveal": "^1.0.11",

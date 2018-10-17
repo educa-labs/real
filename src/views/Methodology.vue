@@ -1,23 +1,29 @@
 <template>
   <div class="app-methodology">
-    <div v-scroll-reveal class="test"/>
-    <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/>
-    <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/>
-    <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/>
-    <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/>
-    <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/>
-    <div v-scroll-reveal class="test"/>
-    <div v-scroll-reveal class="test"/>
-    <div v-scroll-reveal class="test"/>
-    <div v-scroll-reveal class="test"/>
+    <div :style="{ top: 0 }" class="node"/>
+
+    <div :style="{ top: 600, left: 600 }" class="node"/>
+    <!-- <div v-scroll-reveal="{ viewOffset: { bottom: 300 } }" class="test"/> -->
+    <!-- <div v-scroll-reveal class="test"/> -->
   </div>
 </template>
 
+<script>
+export default {
+}
+</script>
+
+
 <style lang="sass">
 .app-methodology
-  .test
-    background-color: $c-primary
-    margin-bottom: 400px
+  background-color: $c-primary
+  height: 100vh
 
-    +size(150px)
+  .node
+    position: absolute
+    margin-bottom: 400px
+    color: $c-primary
+    background-color: $c-white
+
+    +circle(300px)
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div v-sticky="{ zIndex: 0, disabled: true }">
-    <div class="app-navbar">
+    <header class="app-navbar">
       <router-link to="/">
         <div class="logo">Logo</div>
       </router-link>
@@ -19,7 +19,7 @@
         </router-link>
       </div>
       <div class="e-mail">hola@somosreal.cl</div>
-    </div>
+    </header>
   </div>
 </template>
 

@@ -17,7 +17,7 @@ export default {
 
 <style lang="sass">
 .app-quote
-  .content
+  .quote
     font-family: $f-family-secondary
     font-size: 16pt
     width: 462px

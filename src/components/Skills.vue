@@ -56,4 +56,5 @@ export default {
   display: grid
   grid-template-columns: repeat(3, 1fr)
   justify-items: center
+  font-size: 11pt
 </style>

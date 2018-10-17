@@ -1,7 +1,8 @@
 <template>
   <div class="app-hero">
+    <div class="overlay" ref="overlay"/>
     <div class="content">
-      <div class="logo"/>
+      <div :style="{ 'background-image': `url(${logo})` }" class="logo"/>
       <div class="social-media-container">
         <div>Estudio de diseño y estrategia</div>
         <app-social-media :vertical="true"/>
@@ -15,13 +16,16 @@
         >{{concept.name}}</div>
       </div>
     </div>
-    <div
-      v-if="selected === index"
-      v-for="(concept, index) in concepts"
-      :key="`concept-${index}`"
-      :style="{ 'background-image': `url(${concept.image})` }"
-      class="image"
-    />
+    <transition name="fade" mode="out-in">
+      <div
+        v-if="selected === index"
+        v-for="(concept, index) in concepts"
+        :key="`concept-${index}`"
+        :style="{ 'background-image': `url(${concept.image})` }"
+        class="image"
+        ref="image"
+      />
+    </transition>
   </div>
 </template>
 
@@ -33,16 +37,37 @@ export default {
   data() {
     return {
       concepts: [
-        { name: 'proceso', image: require('@images/image.jpg') },
-        { name: 'concepto', image: require('@images/image.jpg') },
-        { name: 'imaginario', image: require('@images/image.jpg') },
-        { name: 'experimentación', image: require('@images/image.jpg') },
-        { name: 'color', image: require('@images/image.jpg') },
-        { name: 'estrategia', image: require('@images/image.jpg') },
+        { name: 'proceso', image: require('@images/home/portfolio_1.png') },
+        { name: 'concepto', image: require('@images/home/portfolio_2.png') },
+        { name: 'imaginario', image: require('@images/home/portfolio_3.png') },
+        { name: 'experimentación', image: require('@images/home/portfolio_4.png') },
+        { name: 'color', image: require('@images/home/portfolio_5.png') },
+        { name: 'estrategia', image: require('@images/home/portfolio_6.png') },
       ],
+      logo: require('@images/logo.svg'),
       selected: 0,
     }
   },
+  methods: {
+    animate() {
+      const animations = this.$a.timeline({
+        duration: 1000,
+        easing: [0.645, 0.045, 0.355, 1],
+        delay: 1000
+      });
+
+      animations.add({
+        targets: this.$refs.overlay,
+        left: '50%',
+      }).add({
+        targets: this.$refs.image,
+        opacity: [0, 1],
+      });
+    },
+  },
+  mounted() {
+    this.animate();
+  } 
 }
 </script>
 
@@ -53,6 +78,7 @@ export default {
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-template-areas: "content image"
+  position: relative
   height: 970px
 
   .content
@@ -62,8 +88,6 @@ export default {
     +d-flex(center, center)
   
     .logo
-      background-color: black
-
       +circle(42px)
       +p-absolute(null, $padding, null, null, $padding)
     
@@ -89,6 +113,9 @@ export default {
 
   .image
     grid-area: image
+    position: relative
+    z-index: 1024
+    margin: 15%
 
     +background-image
 
@@ -116,5 +143,20 @@ export default {
         position: absolute
         left: -80px
         bottom: 50%
-        width: 100% + $translation
+        width: calc(100% + 80px)
+
+.app-hero .overlay
+  background-color: $c-black
+  
+  +p-absolute(1024, 0, 0, 0, 0)
+
+.app-hero
+  .fade-enter, .fade-leave-to
+    opacity: 0
+
+  .fade-enter-active
+    transition: opacity .75s cubic-bezier(0.645, 0.045, 0.355, 1),
+
+  .fade-leave-active
+    transition: opacity .5s
 </style>

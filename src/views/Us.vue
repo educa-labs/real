@@ -71,9 +71,9 @@ export default {
 .designer-wrapper
   padding: 32px 192px 32px 128px
 
-.fade-enter, .fade-leave-to
-  opacity: 0
+  .fade-enter, .fade-leave-to
+    opacity: 0
 
-.fade-enter-active, .fade-leave-active
-  transition: opacity .1s
+  .fade-enter-active, .fade-leave-active
+    transition: opacity .1s
 </style>
