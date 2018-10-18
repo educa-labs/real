@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style lang="sass">
+.app-icon.material-icons
+  font-size: 24px
+
 .app-icon.button
   cursor: pointer
 </style>

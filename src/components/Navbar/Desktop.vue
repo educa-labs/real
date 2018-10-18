@@ -2,8 +2,9 @@
   <div v-sticky="{ zIndex: 0, disabled: true }">
     <header class="app-navbar">
       <router-link to="/">
-        <div class="logo">Logo</div>
+        <app-logo />
       </router-link>
+
       <div>
         <router-link to="/us">
           <div>Nosotros</div>
@@ -31,6 +32,11 @@ import Button from '@components/Button'
 export default {
   directives: { 'sticky': VueSticky },
   components: { 'app-button': Button },
+  data() {
+    return {
+      sidebarOpen: false,
+    }
+  }
 }
 </script>
 
