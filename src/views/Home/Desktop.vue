@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Footer from '@components/Footer';
+import Footer from '@components/Footer/Footer';
 import Gallery from '@components/Gallery';
-import Hero from '@components/Hero';
-import Quote from '@components/Quote';
+import Hero from '@components/Hero/Hero';
+import Quote from '@components/Quote/Quote';
 import Skills from '@components/Skills';
-import Steps from '@components/Steps';
+import Steps from '@components/Steps/Steps';
 
 export default {
   components: {

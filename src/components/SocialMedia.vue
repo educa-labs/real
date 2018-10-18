@@ -1,15 +1,15 @@
 <template>
   <div :class="{ vertical }" class="app-social-media">
-    <a :href="instagram">
+    <a :href="instagram" target="_blank">
       <img src="@images/instagram.svg">
     </a>
     <div class="separator"/>
-    <a :href="linkedin">
+    <a :href="linkedin" target="_blank">
       <img src="@images/linkedin.svg">
     </a>
     <template v-if="tumblr">
       <div class="separator"/>
-      <a>visita sus referencias</a>
+      <a :href="tumblr" target="_blank">visita sus referencias</a>
     </template>
   </div>
 </template>

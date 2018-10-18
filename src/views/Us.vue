@@ -18,7 +18,7 @@
 <script>
 import Composed from '@components/Composed';
 import Designer from '@components/Designer';
-import Footer from '@components/Footer';
+import Footer from '@components/Footer/Footer';
 
 export default {
   components: {

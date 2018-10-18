@@ -1,14 +1,14 @@
 <template>
-  <div :class="{ active }" class="app-steps mobile">
+  <div :class="{ active, first, last }" class="app-steps mobile">
     <carousel class="carousel" :perPage="1" :navigationEnabled="true" :paginationEnabled="false" @pageChange="pageChange" :navigationPrevLabel="prevLabel" :navigationNextLabel="nextLabel">
       <slide v-for="(step, index) in steps" :key="`step-${index}`">
         <div class="step-wrapper">
           <div class="step-container">
-            <div :class="{ first: index === 0, last: index === steps.length - 1 }" class="step">
+            <div class="step">
               {{ `0${index}` }}
             </div>
 
-            <span>{{ step }}</span>
+            <span>{{ step + 1 }}</span>
           </div>
         </div>
       </slide>
@@ -39,6 +39,12 @@ export default {
   computed: {
     active() {
       return this.currentIndex > 0;
+    },
+    first() {
+      return this.currentIndex === 0;
+    },
+    last() {
+      return this.currentIndex === this.steps.length - 1;
     }
   },
   methods: {
@@ -65,6 +71,9 @@ $height: 400px
     &::before, &::after
       background-color: $c-primary
 
+  .VueCarousel-navigation-button
+    color: $c-primary
+
   &.active
     background-color: $c-primary
 
@@ -77,6 +86,9 @@ $height: 400px
 
       &::before, &::after
         background-color: $c-white
+
+    .VueCarousel-navigation-button
+      color: $c-white
 
 .app-steps.mobile .step-wrapper
   flex-direction: column
@@ -133,16 +145,20 @@ $height: 400px
   &.last::after
     display: none
 
-.carousel
-  .VueCarousel-navigation
-    .VueCarousel-navigation-button
-      margin: 0 !important
-      padding: 0 !important
-      color: $c-white
+.app-steps.mobile
+  .VueCarousel-navigation-button
+    margin: 0 !important
+    padding: 0 !important
 
-    .VueCarousel-navigation-prev
-      transform: translate(12px, -12px)
+  .VueCarousel-navigation-prev
+    transform: translate(12px, -12px)
 
-    .VueCarousel-navigation-next
-      transform: translate(-12px, -12px)
+  .VueCarousel-navigation-next
+    transform: translate(-12px, -12px)
+
+  &.first .VueCarousel-navigation-prev
+    display: none
+
+  &.last .VueCarousel-navigation-next
+    display: none
 </style>

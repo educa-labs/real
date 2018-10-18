@@ -1,4 +1,4 @@
-import Home from '@views/Home';
+import Home from '@views/Home/Home';
 
 import Contact from '@views/Contact';
 import Methodology from '@views/Methodology';
