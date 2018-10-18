@@ -1,5 +1,5 @@
 <template>
-  <div class="app-steps" ref="container"></div>
+  <div class="app-steps desktop" ref="container"></div>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
 
 
 <style lang="sass">
-.app-steps
+.app-steps.desktop
   height: 400px
   background-color: c-gray(400)
 </style>

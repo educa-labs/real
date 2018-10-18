@@ -22,6 +22,14 @@
     border-bottom-right-radius: 0
     border-bottom-left-radius: 0
 
+=border-right-radius($border-radius, $only: false)
+  border-top-right-radius: $border-radius
+  border-bottom-right-radius: $border-radius
+
+  @if $only
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+
 =border-bottom-radius($border-radius, $only: false)
   border-bottom-right-radius: $border-radius
   border-bottom-left-radius: $border-radius
@@ -29,6 +37,14 @@
   @if $only
     border-top-left-radius: 0
     border-top-right-radius: 0
+
+=border-left-radius($border-radius, $only: false)
+  border-top-left-radius: $border-radius
+  border-bottom-left-radius: $border-radius
+
+  @if $only
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
 
 =browser($browsers: Mozilla)
   @each $browser in $browsers
