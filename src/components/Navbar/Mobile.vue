@@ -88,10 +88,10 @@ export default {
 
 <style lang="sass">
 .app-navbar-mobile
+  position: absolute
   position: relative
   width: 100%
   padding: 32px
-  background-color: $c-white
   
   +d-flex(center, space-between)
 
@@ -107,6 +107,7 @@ export default {
 
 .app-navbar-mobile.sticky
   position: fixed
+  background-color: $c-white
 
 .app-navbar-mobile.transparent
   background-color: transparent
