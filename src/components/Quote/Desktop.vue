@@ -1,5 +1,5 @@
 <template>
-  <div class="app-quote">
+  <div class="app-quote desktop">
     <div class="quote">{{ quote }}</div>
     <div class="separator"/>
   </div>
@@ -16,15 +16,7 @@ export default {
 </script>
 
 <style lang="sass">
-.app-quote
+.app-quote.desktop
   .quote
-    font-family: $f-family-secondary
-    font-size: 16pt
     width: 462px
-
-  .separator
-    width: 75px
-    height: 2px
-    background-color: $c-primary
-    margin-top: 2rem
 </style>
