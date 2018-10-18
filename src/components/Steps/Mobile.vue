@@ -5,10 +5,10 @@
         <div class="step-wrapper">
           <div class="step-container">
             <div class="step">
-              {{ `0${index}` }}
+              {{ `0${index + 1}` }}
             </div>
 
-            <span>{{ step + 1 }}</span>
+            <span>{{ step }}</span>
           </div>
         </div>
       </slide>
