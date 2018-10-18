@@ -2,7 +2,7 @@
   <div class="app-hero">
     <div class="overlay" ref="overlay"/>
     <div class="content">
-      <div :style="{ 'background-image': `url(${logo})` }" class="logo"/>
+      <app-logo />
       <div class="social-media-container">
         <div>Estudio de diseño y estrategia</div>
         <app-social-media :vertical="true"/>
@@ -44,7 +44,6 @@ export default {
         { name: 'color', image: require('@images/home/portfolio_5.png') },
         { name: 'estrategia', image: require('@images/home/portfolio_6.png') },
       ],
-      logo: require('@images/logo.svg'),
       selected: 0,
     }
   },
@@ -86,11 +85,10 @@ export default {
     position: relative
 
     +d-flex(center, center)
-  
-    .logo
-      +circle(42px)
+
+    .app-logo
       +p-absolute(null, $padding, null, null, $padding)
-    
+  
     .social-media-container
       $icon-size: 24px
 
@@ -119,7 +117,7 @@ export default {
 
     +background-image
 
-.we-are
+.app-hero .we-are
   $translation: 75%
 
   font-weight: 700

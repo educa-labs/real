@@ -89,7 +89,6 @@ export default {
 <style lang="sass">
 .app-navbar-mobile
   position: absolute
-  position: relative
   width: 100%
   padding: 32px
   
