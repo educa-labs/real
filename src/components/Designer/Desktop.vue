@@ -1,5 +1,5 @@
 <template>
-  <div class="app-designer">
+  <div class="app-designer desktop">
     <div class="content">
       <div class="nickname">{{designer.nickname}}</div>
       <div class="description">{{designer.description}}</div>
@@ -27,11 +27,11 @@ export default {
 </script>
 
 <style lang="sass">
-.app-designer
+.app-designer.desktop
   display: grid
   grid-template-columns: 1fr auto
 
-.app-designer .content
+.app-designer.desktop .content
   align-self: center
 
   .nickname
@@ -49,7 +49,7 @@ export default {
   .app-social-media
     margin-top: 32px
 
-.app-designer .image
+.app-designer.desktop .image
   width: 500px
   height: 600px
 </style>

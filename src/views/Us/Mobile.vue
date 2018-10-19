@@ -1,15 +1,14 @@
 <template>
   <div class="app-us mobile">
-    <div class="designer-wrapper">
-      <transition name="fade" mode="out-in">
-        <app-designer
-          v-if="selected === index"
-          v-for="(designer, index) in designers"
-          :key="`designer-${index}`"
-          :designer="designer"
-        />
-      </transition>
-    </div>
+    <h1>Quienes somos</h1>
+    <transition name="fade" mode="out-in">
+      <app-designer
+        v-if="selected === index"
+        v-for="(designer, index) in designers"
+        :key="`designer-${index}`"
+        :designer="designer"
+      />
+    </transition>
     <app-composed :designers="designers" @click="selectDesigner"/>
   </div>
 </template>
@@ -58,15 +57,18 @@ export default {
     selectDesigner(index) {
       this.selected = index
 
-      this.$scrollTo('.designer-wrapper');
+      this.$scrollTo('.app-designer', 1000, { offset: -128 });
     }
   }
 }
 </script>
 
 <style lang="sass">
-.designer-wrapper
-  padding: 32px 192px 32px 128px
+.app-us.mobile
+  padding-top: 128px
+
+  h1
+    padding-left: 48px
 
   .fade-enter, .fade-leave-to
     opacity: 0

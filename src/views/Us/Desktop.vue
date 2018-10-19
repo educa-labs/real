@@ -1,5 +1,5 @@
 <template>
-  <div class="app-us">
+  <div class="app-us desktop">
     <div class="designer-wrapper">
       <transition name="fade" mode="out-in">
         <app-designer
@@ -68,12 +68,13 @@ export default {
 </script>
 
 <style lang="sass">
-.designer-wrapper
-  padding: 32px 192px 32px 128px
+.app-us.desktop
+  .designer-wrapper
+    padding: 32px 192px 32px 128px
 
-  .fade-enter, .fade-leave-to
-    opacity: 0
+    .fade-enter, .fade-leave-to
+      opacity: 0
 
-  .fade-enter-active, .fade-leave-active
-    transition: opacity .1s
+    .fade-enter-active, .fade-leave-active
+      transition: opacity .1s
 </style>

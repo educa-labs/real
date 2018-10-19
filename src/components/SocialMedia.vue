@@ -1,11 +1,13 @@
 <template>
-  <div :class="{ vertical }" class="app-social-media">
+  <div :class="{ vertical, white }" class="app-social-media">
     <a :href="instagram" target="_blank">
-      <img src="@images/instagram.svg">
+      <img v-if="!white" src="@images/instagram.svg">
+      <img v-else src="@images/instagram-white.svg">
     </a>
     <div class="separator"/>
     <a :href="linkedin" target="_blank">
-      <img src="@images/linkedin.svg">
+      <img v-if="!white" src="@images/linkedin.svg">
+      <img v-else src="@images/linkedin-white.svg">
     </a>
     <template v-if="tumblr">
       <div class="separator"/>
@@ -32,11 +34,14 @@ export default {
     vertical: {
       type: Boolean,
       default: false,
+    },
+    white: {
+      type: Boolean,
+      default: false,
     }
   }
 }
 </script>
-
 
 <style lang="sass">
 $height: 20px
@@ -51,6 +56,9 @@ $width: 1px
   a
     display: inline-flex
     font-size: 10pt
+
+    img
+      +size(24px)
 
   .separator
     width: $width
@@ -67,6 +75,6 @@ $width: 1px
 
     margin: $margin 0
 
-.app-social-media img
-  +size(24px)
+.app-social-media.white .separator
+  background-color: $c-white
 </style>
