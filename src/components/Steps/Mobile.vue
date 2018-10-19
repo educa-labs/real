@@ -4,7 +4,7 @@
       <slide v-for="(step, index) in steps" :key="`step-${index}`">
         <div class="step-wrapper">
           <div class="step-container">
-            <div class="step">
+            <div :class="{ first, last }" class="step">
               {{ `0${index + 1}` }}
             </div>
 
