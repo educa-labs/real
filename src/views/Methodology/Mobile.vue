@@ -1,5 +1,6 @@
 <template>
   <div class="app-methodology mobile">
+    <h1>Metodología</h1>
     <div v-for="(step, index) in steps" :key="`step-${index}`">
       <template v-if="index === 0">
         <div class="step" v-scroll-reveal ref="steps">
@@ -7,8 +8,8 @@
         </div>
       </template>
       <div v-else v-scroll-reveal>
-        <div :style="lines[index - 1]" class="line" ref="lines"/>
-        <div class="step" ref="steps">
+        <div :style="connections[index - 1]" class="line" ref="lines"/>
+        <div :class="{ last: index === steps.length - 1 }" class="step" ref="steps">
           {{ step }}
         </div>
       </div>
@@ -27,11 +28,11 @@ export default {
         'Materialización',
         'Seguimiento',
       ],
-      lines: [],
+      connections: [],
     }
   },
   methods: {
-    line(stepA, stepB) {
+    connect(stepA, stepB) {
       const pA = stepA.getBoundingClientRect();
       const pB = stepB.getBoundingClientRect();
 
@@ -51,7 +52,7 @@ export default {
   },
   mounted() {
     for (let i = 0; i < this.$refs.steps.length - 1; i++) {
-      this.lines.push(this.line(this.$refs.steps[i], this.$refs.steps[i + 1]));
+      this.connections.push(this.connect(this.$refs.steps[i], this.$refs.steps[i + 1]));
     }
   } 
 }
@@ -65,12 +66,17 @@ export default {
 
   +d-flex(center, center)
 
+  h1
+    width: 100%
+    padding-left: 48px
+    margin-bottom: 48px
+
   .step
     position: relative
     z-index: 1
     color: $c-white
     background-color: $c-primary
-    margin-bottom: 500px // Temporal...
+    margin-bottom: 100px // Temporal...
     font-size: 22pt
     font-weight: 700
     border-radius: 50%
@@ -78,6 +84,9 @@ export default {
 
     +size(250px)
     +d-flex(center, center)
+  
+  .step.last
+    margin-bottom: 0
 
   .line
     position: absolute
