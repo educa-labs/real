@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ 'background-image': `url(${logo})` }" class="app-logo"/>
+  <img :src="logo" class="app-logo" />
 </template>
 
 <script>
