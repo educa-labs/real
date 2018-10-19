@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fixed-header :fixed.sync="isSticky" :threshold="128">
+    <fixed-header :fixed.sync="isSticky" :threshold="isSticky ? 0 : 128">
       <header :style="{ zIndex: style.zIndex + 1 }" :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" class="app-navbar-mobile" ref="header">
         <router-link to="/" @click.native="toggle">
           <app-logo />
