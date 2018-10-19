@@ -1,5 +1,5 @@
 <template>
-  <div class="app-us">
+  <div class="app-us mobile">
     <div class="designer-wrapper">
       <transition name="fade" mode="out-in">
         <app-designer
@@ -11,20 +11,17 @@
       </transition>
     </div>
     <app-composed :designers="designers" @click="selectDesigner"/>
-    <app-footer/>
   </div>
 </template>
 
 <script>
 import Composed from '@components/Composed';
-import Designer from '@components/Designer';
-import Footer from '@components/Footer/Footer';
+import Designer from '@components/Designer/Designer';
 
 export default {
   components: {
     'app-composed': Composed,
     'app-designer': Designer,
-    'app-footer': Footer,
   },
   data() {
     return {

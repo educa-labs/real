@@ -2,11 +2,11 @@
   <div>
     <fixed-header :fixed.sync="isSticky" :threshold="128">
       <header :style="{ zIndex: style.zIndex + 1 }" :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" class="app-navbar-mobile" ref="header">
-        <router-link to="/">
+        <router-link to="/" @click.native="toggle">
           <app-logo />
         </router-link>
 
-        <button type="button" class="menu-button" @click="open">
+        <button type="button" class="menu-button" @click="toggle">
           <app-icon v-if="!isOpen">menu</app-icon>
           <app-icon v-else>close</app-icon>
         </button>
@@ -17,16 +17,16 @@
       <div :style="{ zIndex: style.zIndex }" class="menu" v-show="isOpen">
         <div class="content">
           <div class="links">
-            <router-link to="/us">
+            <router-link to="/us" @click.native="toggle">
               <div>Nosotros</div>
             </router-link>
-            <router-link to="/portfolio">
+            <router-link to="/portfolio" @click.native="toggle">
               <div>Trabajo</div>
             </router-link>
-            <router-link to="/methodology">
+            <router-link to="/methodology" @click.native="toggle">
               <div>Metodología</div>
             </router-link>
-            <router-link to="/contact">
+            <router-link to="/contact" @click.native="toggle">
               <div>Contacto</div>
             </router-link>
           </div>
@@ -74,7 +74,7 @@ export default {
     }
   },
   methods: {
-    open() {
+    toggle() {
       if (!this.isOpen) {
         this.isOpen = true;
         this.isTransparent = true;
@@ -91,6 +91,7 @@ export default {
   position: absolute
   width: 100%
   padding: 32px
+  transition: background-color .1s
   
   +d-flex(center, space-between)
 
