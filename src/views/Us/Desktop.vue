@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Composed from '@components/Composed';
-import Designer from '@components/Designer/Designer';
+import Composed from '@components/Composed/Desktop';
+import Designer from '@components/Designer/Desktop';
 import Footer from '@components/Footer/Footer';
 
 export default {

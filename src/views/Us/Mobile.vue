@@ -1,21 +1,22 @@
 <template>
   <div class="app-us mobile">
     <h1>Quienes somos</h1>
-    <transition name="fade" mode="out-in">
+
       <app-designer
-        v-if="selected === index"
-        v-for="(designer, index) in designers"
-        :key="`designer-${index}`"
+      v-if="selected === index"
+      v-for="(designer, index) in designers"
+      :key="`designer-${index}`"
         :designer="designer"
+        @close="selected = null"
       />
-    </transition>
+
     <app-composed :designers="designers" @click="selectDesigner"/>
   </div>
 </template>
 
 <script>
-import Composed from '@components/Composed';
-import Designer from '@components/Designer/Designer';
+import Composed from '@components/Composed/Mobile';
+import Designer from '@components/Designer/Mobile';
 
 export default {
   components: {
@@ -57,8 +58,8 @@ export default {
     selectDesigner(index) {
       this.selected = index
 
-      this.$scrollTo('.app-designer', 1000, { offset: -128 });
-    }
+      this.$nextTick(() => this.$scrollTo('.app-designer', 1000, { offset: -128 }));
+    },
   }
 }
 </script>
@@ -69,10 +70,4 @@ export default {
 
   h1
     padding-left: 48px
-
-  .fade-enter, .fade-leave-to
-    opacity: 0
-
-  .fade-enter-active, .fade-leave-active
-    transition: opacity .1s
 </style>
