@@ -2,6 +2,7 @@
   <i 
     class="material-icons app-icon"
     :class="{ button }"
+    @click="$emit('click')"
   >
     <slot/>
   </i>

@@ -1,6 +1,6 @@
 <template>
   <div class="app-designer mobile">
-    <app-icon class="close" :button="true">close</app-icon>
+    <app-icon class="close" :button="true" @click="close">close</app-icon>
 
     <div class="she">
       <div class="nickname">{{designer.nickname}}</div>
@@ -23,6 +23,11 @@ export default {
     designer: {
       type: Object,
       required: true,
+    }
+  },
+  methods: {
+    close() {
+      this.$emit('close');
     }
   }
 }
