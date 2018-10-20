@@ -75,4 +75,3 @@ export default {
     img
       +size(64px)
 </style>
-
