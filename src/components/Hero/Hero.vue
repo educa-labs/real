@@ -11,6 +11,6 @@ export default {
   components: {
     'app-hero-desktop': Desktop,
     'app-hero-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>

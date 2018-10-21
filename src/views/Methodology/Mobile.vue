@@ -1,15 +1,28 @@
 <template>
   <div class="app-methodology mobile">
     <h1>Metodología</h1>
-    <div v-for="(step, index) in steps" :key="`step-${index}`">
+    <div 
+      v-for="(step, index) in steps" 
+      :key="`step-${index}`">
       <template v-if="index === 0">
-        <div class="step" v-scroll-reveal ref="steps">
+        <div 
+          v-scroll-reveal 
+          ref="steps" 
+          class="step">
           {{ step }}
         </div>
       </template>
-      <div v-else v-scroll-reveal>
-        <div :style="connections[index - 1]" class="line" ref="lines"/>
-        <div :class="{ last: index === steps.length - 1 }" class="step" ref="steps">
+      <div 
+        v-scroll-reveal 
+        v-else>
+        <div 
+          ref="lines" 
+          :style="connections[index - 1]" 
+          class="line" />
+        <div 
+          ref="steps" 
+          :class="{ last: index === steps.length - 1 }" 
+          class="step">
           {{ step }}
         </div>
       </div>
@@ -29,6 +42,13 @@ export default {
         'Seguimiento',
       ],
       connections: [],
+    };
+  },
+  mounted() {
+    for (let i = 0; i < this.$refs.steps.length - 1; i++) {
+      this.connections.push(
+        this.connect(this.$refs.steps[i], this.$refs.steps[i + 1])
+      );
     }
   },
   methods: {
@@ -47,15 +67,10 @@ export default {
         left: `${pA.x + pA.width / 2}px`,
         width: `${width}px`,
         transform: `rotate(${rad}rad)`,
-      }
-    }
+      };
+    },
   },
-  mounted() {
-    for (let i = 0; i < this.$refs.steps.length - 1; i++) {
-      this.connections.push(this.connect(this.$refs.steps[i], this.$refs.steps[i + 1]));
-    }
-  } 
-}
+};
 </script>
 
 <style lang="sass">

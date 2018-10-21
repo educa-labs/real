@@ -1,11 +1,10 @@
 <template>
   <div class="app-composed mobile">
-    <div
-      v-for="(designer, index) in designers"
-      :key="`designer-${index}`"
-      :style="{ 'background-image': `url(${designer.image})` }"
-      @click="$emit('click', index)"
-    >{{ designer.nickname }}</div>
+    <div 
+      v-for="(designer, index) in designers" 
+      :key="`designer-${index}`" 
+      :style="{ 'background-image': `url(${designer.image})` }" 
+      @click="$emit('click', index)">{{ designer.nickname }}</div>
   </div>
 </template>
 
@@ -15,9 +14,9 @@ export default {
     designers: {
       type: Array,
       required: true,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass">

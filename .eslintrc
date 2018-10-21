@@ -1,10 +1,23 @@
 {
+  "root": true,
+  "env": {
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
   ],
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "rules": {
-    "quotes": ["error", "single"],
-    "comma-dangle": ["error", "always"]
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "comma-dangle": [
+      "error",
+      "always"
+    ]
   }
 }

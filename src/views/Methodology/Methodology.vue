@@ -11,6 +11,6 @@ export default {
   components: {
     'app-methodology-desktop': Desktop,
     'app-methodology-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>

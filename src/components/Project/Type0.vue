@@ -1,21 +1,29 @@
 <template>
   <div class="project-images type-0">
     <div class="image-wrapper">
-      <div :style="{ 'background-image': `url(${images[0]})` }" class="image" />
+      <div 
+        :style="{ 'background-image': `url(${images[0]})` }" 
+        class="image" />
     </div>
 
     <div class="image-wrapper">
-      <div :style="{ 'background-image': `url(${images[1]})` }" class="image" />
+      <div 
+        :style="{ 'background-image': `url(${images[1]})` }" 
+        class="image" />
 
       <h1>{{ quote }}</h1>
     </div>
 
     <div class="image-wrapper">
-      <div :style="{ 'background-image': `url(${images[2]})` }" class="image" />
+      <div 
+        :style="{ 'background-image': `url(${images[2]})` }" 
+        class="image" />
     </div>
 
     <div class="image-wrapper">
-      <div :style="{ 'background-image': `url(${images[3]})` }" class="image" />
+      <div 
+        :style="{ 'background-image': `url(${images[3]})` }" 
+        class="image" />
     </div>
   </div>
 </template>
@@ -27,13 +35,13 @@ export default {
       type: Array,
       required: true,
     },
-  } ,
+  },
   data() {
     return {
-      quote: `Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.`,
-    }
-  }
-}
+      quote: 'Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.',
+    };
+  },
+};
 </script>
     
 <style lang="sass">

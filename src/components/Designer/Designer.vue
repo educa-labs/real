@@ -1,6 +1,10 @@
 <template>
-  <app-designer-mobile v-if="$mq === 'mobile'" v-bind="$props" />
-  <app-designer-desktop v-else v-bind="$props" />
+  <app-designer-mobile 
+    v-if="$mq === 'mobile'" 
+    v-bind="$props" />
+  <app-designer-desktop 
+    v-else 
+    v-bind="$props" />
 </template>
 
 <script>
@@ -16,7 +20,7 @@ export default {
     designer: {
       type: Object,
       required: true,
-    }
+    },
   },
-}
+};
 </script>

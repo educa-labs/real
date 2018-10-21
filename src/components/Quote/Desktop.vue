@@ -1,7 +1,7 @@
 <template>
   <div class="app-quote desktop">
     <div class="quote">{{ quote }}</div>
-    <div class="separator"/>
+    <div class="separator" />
   </div>
 </template>
 
@@ -9,10 +9,10 @@
 export default {
   data() {
     return {
-      quote: `Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.`
-    }
-  }
-}
+      quote: 'Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.',
+    };
+  },
+};
 </script>
 
 <style lang="sass">

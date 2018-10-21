@@ -11,8 +11,8 @@ export default {
   components: {
     'app-footer-desktop': Desktop,
     'app-footer-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>
 
 <style lang="sass">

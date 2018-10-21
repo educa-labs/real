@@ -1,10 +1,23 @@
 <template>
-  <div :class="{ active, first, last }" class="app-steps mobile">
-    <carousel class="carousel" :perPage="1" :navigationEnabled="true" :paginationEnabled="false" @pageChange="pageChange" :navigationPrevLabel="prevLabel" :navigationNextLabel="nextLabel">
-      <slide v-for="(step, index) in steps" :key="`step-${index}`">
+  <div 
+    :class="{ active, first, last }" 
+    class="app-steps mobile">
+    <carousel 
+      :per-page="1" 
+      :navigation-enabled="true" 
+      :pagination-enabled="false" 
+      :navigation-prev-label="prevLabel" 
+      :navigation-next-label="nextLabel" 
+      class="carousel" 
+      @pageChange="pageChange">
+      <slide 
+        v-for="(step, index) in steps" 
+        :key="`step-${index}`">
         <div class="step-wrapper">
           <div class="step-container">
-            <div :class="{ first, last }" class="step">
+            <div 
+              :class="{ first, last }" 
+              class="step">
               {{ `0${index + 1}` }}
             </div>
 
@@ -17,10 +30,10 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide, } from 'vue-carousel';
 
 export default {
-  components: { Carousel, Slide },
+  components: { Carousel, Slide, },
   data() {
     return {
       currentIndex: 0,
@@ -33,8 +46,8 @@ export default {
         'Implementación',
         'Entrega',
         'Seguimiento',
-      ]
-    }
+      ],
+    };
   },
   computed: {
     active() {
@@ -45,14 +58,14 @@ export default {
     },
     last() {
       return this.currentIndex === this.steps.length - 1;
-    }
+    },
   },
   methods: {
     pageChange(index) {
       this.currentIndex = index;
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">

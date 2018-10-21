@@ -1,32 +1,56 @@
 <template>
   <div>
-    <fixed-header :fixed.sync="isSticky" :threshold="isSticky ? 0 : 128">
-      <header :style="{ zIndex: style.zIndex + 1 }" :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" class="app-navbar-mobile" ref="header">
-        <router-link to="/" @click.native="toggle">
+    <fixed-header 
+      :fixed.sync="isSticky" 
+      :threshold="isSticky ? 0 : 128">
+      <header 
+        ref="header" 
+        :style="{ zIndex: style.zIndex + 1 }" 
+        :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" 
+        class="app-navbar-mobile">
+        <router-link 
+          to="/" 
+          @click.native="toggle">
           <app-logo />
         </router-link>
 
-        <button type="button" class="menu-button" @click="toggle">
+        <button 
+          type="button" 
+          class="menu-button" 
+          @click="toggle">
           <app-icon v-if="!isOpen">menu</app-icon>
           <app-icon v-else>close</app-icon>
         </button>
       </header>
     </fixed-header>
 
-    <transition name="menu" @after-leave="isTransparent = false">
-      <div :style="{ zIndex: style.zIndex }" class="menu" v-show="isOpen">
+    <transition 
+      name="menu" 
+      @after-leave="isTransparent = false">
+      <div 
+        v-show="isOpen" 
+        :style="{ zIndex: style.zIndex }" 
+        class="menu">
         <div class="content">
           <div class="links">
-            <router-link to="/us" @click.native="toggle">
+            <router-link 
+              to="/us" 
+              @click.native="toggle">
               <div>Nosotros</div>
             </router-link>
-            <router-link to="/portfolio" @click.native="toggle">
+            <router-link 
+              to="/portfolio" 
+              @click.native="toggle">
               <div>Trabajo</div>
             </router-link>
-            <router-link to="/methodology" @click.native="toggle">
+            <router-link 
+              to="/methodology" 
+              @click.native="toggle">
               <div>Metodología</div>
             </router-link>
-            <router-link to="/contact" @click.native="toggle">
+            <router-link 
+              to="/contact" 
+              @click.native="toggle">
               <div>Contacto</div>
             </router-link>
           </div>
@@ -44,34 +68,37 @@
 </template>
 
 <script>
-import Button from '@components/Button'
-import FixedHeader from 'vue-fixed-header'
+import Button from '@components/Button';
+import FixedHeader from 'vue-fixed-header';
 
 export default {
-  components: { 'app-button': Button, 'fixed-header': FixedHeader },
+  components: { 'app-button': Button, 'fixed-header': FixedHeader, },
   data() {
     return {
       isOpen: false,
       isSticky: false,
       isTransparent: false,
       style: {
-        zIndex: 2024
-      }
-    }
+        zIndex: 2024,
+      },
+    };
   },
   watch: {
     isSticky(value) {
-      this.$store.dispatch('updateNavbar', { isSticky: this.isSticky, isOpen: this.isOpen });
+      this.$store.dispatch('updateNavbar', {
+        isSticky: this.isSticky,
+        isOpen: this.isOpen,
+      });
 
       if (value && !this.isOpen) {
         this.$a({
           targets: this.$refs.header,
-          opacity: [0, 1],
+          opacity: [0, 1,],
           duration: 500,
-          easing: [0.645, 0.045, 0.355, 1],
-        })
+          easing: [0.645, 0.045, 0.355, 1,],
+        });
       }
-    }
+    },
   },
   methods: {
     toggle() {
@@ -82,8 +109,8 @@ export default {
         this.isOpen = false;
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">

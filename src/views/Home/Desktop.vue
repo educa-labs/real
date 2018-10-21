@@ -25,8 +25,8 @@ export default {
     'app-quote': Quote,
     'app-skills': Skills,
     'app-steps': Steps,
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">

@@ -1,9 +1,13 @@
 <template>
   <div class="app-skills">
-    <div v-for="(skill, index) in skills" :key="`skill-${index}`">
+    <div 
+      v-for="(skill, index) in skills" 
+      :key="`skill-${index}`">
       <h1>{{ skill.title }}</h1>
       <ul>
-        <li v-for="(item, index) in skill.items" :key="`item-${index}`">{{ item }}</li>
+        <li 
+          v-for="(item, index) in skill.items" 
+          :key="`item-${index}`">{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -23,7 +27,7 @@ export default {
             'Desarrollo / Estrategia de Marca',
             'Marketing Digital',
             'Análisis de Usabilidad',
-          ]
+          ],
         },
         {
           title: 'Identidad',
@@ -33,7 +37,7 @@ export default {
             'Aplicaciones de Marca',
             'Dirección de Arte',
             'Dirección Creativa',
-          ]
+          ],
         },
         {
           title: 'Estrategia',
@@ -43,12 +47,12 @@ export default {
             'Museografía, Productos,',
             'Packaging, Redes Sociales',
             'Infografías',
-          ]
+          ],
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="sass">

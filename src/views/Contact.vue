@@ -5,13 +5,13 @@
     </div>
     <div>
       <div>
-        <div class="e-mail">{{eMail}}</div>
+        <div class="e-mail">{{ eMail }}</div>
         <div>{{ addressA }}</div>
         <div>{{ addressB }}</div>
         <div>{{ city }}</div>
         <div class="cell-phone">{{ cellPhone }}</div>
       </div>
-      <app-social-media/>
+      <app-social-media />
     </div>
   </div>
 </template>
@@ -30,9 +30,9 @@ export default {
       cellPhone: '56229816946',
       city: 'Santiago',
       eMail: 'hola@somosreal.cl',
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="sass">

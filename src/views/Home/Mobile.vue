@@ -16,8 +16,8 @@ export default {
     'app-hero': Hero,
     'app-quote': Quote,
     'app-steps': Steps,
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">

@@ -11,8 +11,8 @@ export default {
   components: {
     'app-quote-desktop': Desktop,
     'app-quote-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>
 
 <style lang="sass">

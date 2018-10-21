@@ -1,12 +1,19 @@
 <template>
   <div class="app-designer desktop">
     <div class="content">
-      <div class="nickname">{{designer.nickname}}</div>
-      <div class="description">{{designer.description}}</div>
+      <div class="nickname">{{ designer.nickname }}</div>
+      <div class="description">{{ designer.description }}</div>
       <div class="e-mail">{{ designer.eMail }}</div>
-      <app-social-media :instagram="designer.instagram" :linkedin="designer.linkedin" tumblr="https://www.tumblr.com"/>
+      <app-social-media
+        :instagram="designer.instagram"
+        :linkedin="designer.linkedin"
+        tumblr="https://www.tumblr.com"
+      />
     </div>
-    <div :style="{ 'background-image': `url(${designer.image})` }" class="image"/>
+    <div
+      :style="{ 'background-image': `url(${designer.image})` }"
+      class="image"
+    />
   </div>
 </template>
 
@@ -21,9 +28,9 @@ export default {
     designer: {
       type: Object,
       required: true,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass">

@@ -16,6 +16,7 @@ module.exports = {
       },
     },
   },
+
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'sass',
@@ -24,4 +25,6 @@ module.exports = {
       ],
     },
   },
+
+  lintOnSave: undefined,
 };

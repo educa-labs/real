@@ -11,6 +11,6 @@ export default {
   components: {
     'app-navbar-desktop': Desktop,
     'app-navbar-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>

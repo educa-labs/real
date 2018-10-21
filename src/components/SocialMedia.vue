@@ -1,17 +1,33 @@
 <template>
-  <div :class="{ vertical, white }" class="app-social-media">
-    <a :href="instagram" target="_blank">
-      <img v-if="!white" src="@images/instagram.svg">
-      <img v-else src="@images/instagram-white.svg">
+  <div 
+    :class="{ vertical, white }" 
+    class="app-social-media">
+    <a 
+      :href="instagram" 
+      target="_blank">
+      <img 
+        v-if="!white" 
+        src="@images/instagram.svg">
+      <img 
+        v-else 
+        src="@images/instagram-white.svg">
     </a>
-    <div class="separator"/>
-    <a :href="linkedin" target="_blank">
-      <img v-if="!white" src="@images/linkedin.svg">
-      <img v-else src="@images/linkedin-white.svg">
+    <div class="separator" />
+    <a 
+      :href="linkedin" 
+      target="_blank">
+      <img 
+        v-if="!white" 
+        src="@images/linkedin.svg">
+      <img 
+        v-else 
+        src="@images/linkedin-white.svg">
     </a>
     <template v-if="tumblr">
-      <div class="separator"/>
-      <a :href="tumblr" target="_blank">visita sus referencias</a>
+      <div class="separator" />
+      <a 
+        :href="tumblr" 
+        target="_blank">visita sus referencias</a>
     </template>
   </div>
 </template>
@@ -38,9 +54,9 @@ export default {
     white: {
       type: Boolean,
       default: false,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass">

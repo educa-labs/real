@@ -1,5 +1,5 @@
 <template>
-  <div v-sticky="{ zIndex: 0, disabled: true }">
+  <div>
     <header class="app-navbar">
       <router-link to="/">
         <app-logo />
@@ -25,19 +25,17 @@
 </template>
 
 <script>
-import VueSticky from 'vue-sticky'
-
-import Button from '@components/Button'
+import Button from '@components/Button';
+import FixedHeader from 'vue-fixed-header';
 
 export default {
-  directives: { 'sticky': VueSticky },
-  components: { 'app-button': Button },
+  components: { 'app-button': Button, 'fixed-header': FixedHeader, },
   data() {
     return {
       sidebarOpen: false,
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="sass">

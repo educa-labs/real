@@ -2,8 +2,10 @@
   <div id="app">
     <app-navbar />
 
-    <div :class="{ sticky: $store.state.navbar.isSticky && !$store.state.navbar.isOpen }" class="body">
-      <router-view></router-view>
+    <div 
+      :class="{ sticky: $store.state.navbar.isSticky && !$store.state.navbar.isOpen }" 
+      class="body">
+      <router-view/>
     </div>
 
     <app-footer />
@@ -18,8 +20,8 @@ export default {
   components: {
     'app-footer': Footer,
     'app-navbar': Navbar,
-  }  
-}
+  },
+};
 </script>
 
 <style lang="sass">

@@ -1,14 +1,20 @@
 <template>
   <footer class="app-footer">
-    <a :href="instagram" target="_blank">
+    <a 
+      :href="instagram" 
+      target="_blank">
       <img src="@images/instagram.svg">
     </a>
-    <div class="separator"/>
-    <a :href="linkedin" target="_blank">
+    <div class="separator" />
+    <a 
+      :href="linkedin" 
+      target="_blank">
       <img src="@images/linkedin.svg">
     </a>
-    <div class="separator"/>
-    <a href="#" target="_blank">
+    <div class="separator" />
+    <a 
+      href="#" 
+      target="_blank">
       <img src="@images/send.svg">
     </a>
   </footer>
@@ -20,9 +26,9 @@ export default {
     return {
       instagram: '',
       linkedin: '',
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="sass">

@@ -1,8 +1,8 @@
 <template>
   <footer class="app-footer">
     <div>
-      <div class="e-mail">{{eMail}}</div>
-      <app-social-media/>
+      <div class="e-mail">{{ eMail }}</div>
+      <app-social-media />
     </div>
     <div>
       <div>{{ addressA }}</div>
@@ -31,9 +31,9 @@ export default {
       city: 'Santiago',
       country: 'Chile',
       eMail: 'hola@somosreal.cl',
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="sass">

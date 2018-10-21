@@ -1,17 +1,16 @@
 <template>
   <i 
-    class="material-icons app-icon"
-    :class="{ button }"
-    @click="$emit('click')"
-  >
-    <slot/>
+    :class="{ button }" 
+    class="material-icons app-icon" 
+    @click="$emit('click')">
+    <slot />
   </i>
 </template>
 
 <script>
 export default {
   props: {
-    button: { type: Boolean, default: false },
+    button: { type: Boolean, default: false, },
   },
 };
 </script>

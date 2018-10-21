@@ -11,8 +11,8 @@ export default {
   components: {
     'app-steps-desktop': Desktop,
     'app-steps-mobile': Mobile,
-  }  
-}
+  },
+};
 </script>
 
 <style lang="sass">

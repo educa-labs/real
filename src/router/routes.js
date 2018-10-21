@@ -1,5 +1,4 @@
 import Home from '@views/Home/Home';
-
 import Contact from '@views/Contact';
 import Methodology from '@views/Methodology/Methodology';
 import Portfolio from '@views/Portfolio';
@@ -26,5 +25,5 @@ export default [
   {
     path: '/us',
     component: Us,
-  }
+  },
 ]
