@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "animejs": "^2.2.0",
-    "prettier": "1.14.3",
+    "prettier": "1.12.1",
     "underscore": "^1.9.1",
     "vue": "^2.5.17",
     "vue-carousel": "0.15.0",

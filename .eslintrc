@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "comma-dangle": ["error", "always"]
+  }
+}
