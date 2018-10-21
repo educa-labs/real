@@ -4,7 +4,7 @@
 
     <div class="she">
       <div class="nickname">{{designer.nickname}}</div>
-      <div :style="{ 'background-image': `url(${designer.image})` }" class="image"/>
+      <div :style="{ 'background-image': `url(${designer.image})` }" class="image" />
     </div>
 
     <div class="description">{{designer.description}}</div>
@@ -23,14 +23,14 @@ export default {
     designer: {
       type: Object,
       required: true,
-    }
+    },
   },
   methods: {
     close() {
       this.$emit('close');
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass">
