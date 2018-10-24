@@ -1,6 +1,6 @@
 <template>
   <div class="app-us mobile">
-    <h1>Quienes somos</h1>
+    <h1 class="section-title">Quienes somos</h1>
 
     <app-designer 
       v-for="(designer, index) in designers" 
@@ -58,7 +58,7 @@ export default {
           eMail: 'trini@somosreal.cl',
         },
       ],
-      selected: 0,
+      selected: null,
     };
   },
   methods: {
@@ -77,6 +77,6 @@ export default {
 .app-us.mobile
   padding-top: 128px
 
-  h1
+  .section-title
     padding-left: 48px
 </style>

@@ -1,15 +1,18 @@
 <template>
-  <footer class="app-footer">
+  <footer class="app-footer desktop">
     <div>
       <div class="e-mail">{{ eMail }}</div>
+
       <app-social-media />
     </div>
+
     <div>
       <div>{{ addressA }}</div>
       <div>{{ addressB }}</div>
       <div>{{ city }}</div>
       <div>{{ country }}</div>
     </div>
+
     <div>
       <div>{{ cellPhone }}</div>
     </div>
@@ -37,11 +40,11 @@ export default {
 </script>
 
 <style lang="sass">
-.app-footer
+.app-footer.desktop
   display: grid
   grid-template-columns: repeat(3, 1fr)
   justify-items: center
-  font-size: 14pt
+  font-size: $f-size-md
   font-weight: 700
 
   .e-mail

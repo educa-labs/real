@@ -1,19 +1,23 @@
 <template>
-  <footer class="app-footer">
+  <footer class="app-footer mobile">
     <a 
       :href="instagram" 
       target="_blank"
     >
       <img src="@images/instagram.svg">
     </a>
+
     <div class="separator" />
+
     <a 
       :href="linkedin" 
       target="_blank"
     >
       <img src="@images/linkedin.svg">
     </a>
+
     <div class="separator" />
+
     <a 
       href="#" 
       target="_blank"
@@ -35,16 +39,16 @@ export default {
 </script>
 
 <style lang="sass">
-$size: 32px
+.app-footer.mobile
+  $size: 32px
 
-.app-footer
   +d-flex(center, space-around)
 
-  a
+  & > a
     display: inline-flex
 
-    img
-      +size($size)
+  & > a > img
+    +size($size)
 
   .separator
     width: 1px

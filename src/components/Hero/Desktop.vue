@@ -1,15 +1,19 @@
 <template>
-  <div class="app-hero">
+  <div class="app-hero desktop">
     <div 
       ref="overlay" 
       class="overlay"
     />
+
     <div class="content">
-      <app-logo />
+      <app-logo :version="1" />
+
       <div class="social-media-container">
         <div>Estudio de diseño y estrategia</div>
+
         <app-social-media :vertical="true" />
       </div>
+
       <div class="we-are">
         <div 
           v-for="(concept, index) in concepts" 
@@ -21,10 +25,8 @@
         </div>
       </div>
     </div>
-    <transition 
-      name="fade" 
-      mode="out-in"
-    >
+
+    <transition name="fade">
       <div 
         v-for="(concept, index) in concepts" 
         v-if="selected === index" 
@@ -64,8 +66,8 @@ export default {
   methods: {
     animate() {
       const animations = this.$a.timeline({
-        duration: 1000,
-        easing: [0.645, 0.045, 0.355, 1,],
+        duration: 750,
+        easing: 'easeInOutQuint',
         delay: 1000,
       });
 
@@ -84,90 +86,92 @@ export default {
 </script>
 
 <style lang="sass">
-.app-hero
-  $padding: 38px
+$hero-height: 970px
 
+.app-hero.desktop
+  position: relative
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-template-areas: "content image"
-  position: relative
-  height: 970px
+  height: $hero-height
 
-  .content
-    grid-area: content
-    position: relative
-
-    +d-flex(center, center)
-
-    .app-logo
-      +p-absolute(null, $padding, null, null, $padding)
-  
-    .social-media-container
-      $icon-size: 24px
-
-      +p-absolute(null, null, null, $padding, $padding)
-
-      & > div:first-child
-        font-family: $f-family-secondary
-        font-weight: 400
-        font-size: 14pt
-        white-space: nowrap
-        position: absolute
-        transform: rotate(-90deg)
-        transform-origin: left top
-        height: $icon-size
-        line-height: $icon-size
-        top: -10px
-
-      i
-        font-size: $icon-size
-
-  .image
-    grid-area: image
-    position: relative
-    z-index: 1024
-    margin: 15%
-
-    +background-image
-
-.app-hero .we-are
-  $translation: 75%
-
-  font-weight: 700
-  font-size: 21pt
-  transform: translateX($translation / 2)
-
-  div
-    cursor: pointer
-
-    &.active
-      position: relative
-      display: inline-block
-
-      &::before
-        font-family: $f-family-secondary
-        font-weight: 700
-        font-style: italic
-        font-size: 14pt
-        content: 'Somos'
-        border-bottom: 1px solid $c-primary
-        position: absolute
-        left: -80px
-        bottom: 50%
-        width: calc(100% + 80px)
-
-.app-hero .overlay
+.app-hero.desktop .overlay
   background-color: $c-black
   
   +p-absolute(1024, 0, 0, 0, 0)
 
-.app-hero
+.app-hero.desktop .content
+  $padding: 32px
+
+  grid-area: content
+  position: relative
+
+  +d-flex(center, center)
+
+  .app-logo
+    position: absolute
+    top: $padding
+    left: $padding
+
+  .social-media-container
+    $icon-size: 24px
+
+    position: absolute
+    bottom: $padding
+    left: $padding
+
+    & > div:first-child
+      position: absolute
+      top: -10px
+      font-family: $f-family-secondary
+      font-size: $f-size-md
+      font-weight: 400
+      line-height: $icon-size
+      white-space: nowrap
+      height: $icon-size
+      transform-origin: left top
+      transform: rotate(-90deg)
+
+  .we-are
+    $left: 80px
+
+    font-size: 21pt
+    font-weight: 700
+    transform: translateX(calc(#{$left} / 2))
+
+    div
+      cursor: pointer
+
+      &.active
+        position: relative
+        display: inline-block
+
+        &::before
+          content: 'Somos'
+          position: absolute
+          bottom: 50%
+          left: -$left
+          font-family: $f-family-secondary
+          font-size: $f-size-md
+          font-style: italic
+          font-weight: 700
+          width: calc(100% + #{$left})
+          border-bottom: 2px solid $c-primary
+
+.app-hero.desktop .image
+  grid-area: image
+  position: relative
+  z-index: 1025
+
+  +background-image
+
+.app-hero.desktop
   .fade-enter, .fade-leave-to
-    opacity: 0
+    opacity: .1
 
   .fade-enter-active
-    transition: opacity .75s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transition: opacity .5s ease
 
   .fade-leave-active
-    transition: opacity .5s
+    transition: opacity .5s ease
 </style>

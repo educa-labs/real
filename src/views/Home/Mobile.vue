@@ -22,12 +22,13 @@ export default {
 
 <style lang="sass">
 $horizontal-padding: 32px
-$vertical-padding: 64px
+$vertical-margin: 64px
 
 .app-home.mobile
   .app-hero
-    margin-bottom: $vertical-padding
+    margin-bottom: $vertical-margin
 
-  .app-quote.mobile
-    margin: $vertical-padding $horizontal-padding
+  .app-quote
+    margin: 0 0 $vertical-margin
+    padding: 0 $horizontal-padding
 </style>

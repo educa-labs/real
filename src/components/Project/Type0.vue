@@ -42,7 +42,8 @@ export default {
   },
   data() {
     return {
-      quote: 'Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.',
+      quote:
+        'Diseñamos estratégicamente, construimos visualmente. Lo hacemos para sorprender, comunicar, y crear valor.',
     };
   },
 };
@@ -50,6 +51,12 @@ export default {
     
 <style lang="sass">
 .project-images.type-0
+  .image-wrapper .image
+    height: 750px
+    width: 100%
+
+    +background-image
+
   .image-wrapper:nth-child(1)
     max-width: 1400px
     margin-left: auto

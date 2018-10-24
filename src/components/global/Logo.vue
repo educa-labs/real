@@ -1,6 +1,7 @@
 <template>
   <img 
-    :src="logo" 
+    :src="logos[version]" 
+    :class="{ v0: version === 0, v1: version === 1 }"
     class="app-logo"
   >
 </template>
@@ -15,14 +16,16 @@ export default {
   },
   data() {
     return {
-      logoV1: require('@images/logo-v1.svg'),
-      logoV2: require('@images/logo-v2.svg'),
+      logos: [
+      require('@images/logo-v0.svg'),
+      require('@images/logo-v1.svg'),
+      ],
     };
   },
 };
 </script>
 
 <style lang="sass">
-.app-logo
+.app-logo.v1
   +circle(42px)
 </style>

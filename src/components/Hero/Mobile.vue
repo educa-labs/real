@@ -1,9 +1,6 @@
 <template>
-  <div class="app-hero-mobile">
-    <transition 
-      name="fade" 
-      mode="out-in"
-    >
+  <div class="app-hero mobile">
+    <transition name="fade">
       <div 
         v-for="(concept, index) in concepts" 
         v-if="selected === index" 
@@ -74,27 +71,26 @@ export default {
 </script>
 
 <style lang="sass">
-.app-hero-mobile
-  $padding: 38px
+$hero-height: 970px
+
+.app-hero.mobile
+  $padding: 32px
 
   position: relative
-  height: 970px
+  height: $hero-height
+
   +d-flex(center, center)
 
-  .app-logo
-    +circle(42px)
-    +p-absolute(null, $padding, null, null, $padding)
-    
-  .image
-    +p-absolute(null, 0, 0, 0, 0)
-    +background-image
+.app-hero.mobile .image
+  +background-image
+  +p-absolute(null, 0, 0, 0, 0)
 
-.we-are
-  $translation: 75%
+.app-hero.mobile .we-are
+  $left: 80px
 
+  font-size: 21pt
   font-weight: 700
-  font-size: 30pt
-  transform: translateX(calc(80px / 2))
+  transform: translateX(calc(#{$left} / 2))
 
   div
     cursor: pointer
@@ -104,24 +100,24 @@ export default {
       display: inline-block
 
       &::before
-        font-family: $f-family-secondary
-        font-weight: 700
-        font-style: italic
-        font-size: 14pt
         content: 'Somos'
-        border-bottom: 1px solid $c-primary
         position: absolute
-        left: -80px
         bottom: 50%
-        width: calc(100% + 80px)
+        left: -$left
+        font-family: $f-family-secondary
+        font-size: $f-size-md
+        font-style: italic
+        font-weight: 700
+        width: calc(100% + #{$left})
+        border-bottom: 2px solid $c-primary
 
-.app-hero-mobile
+.app-hero.mobile
   .fade-enter, .fade-leave-to
     opacity: 0
 
   .fade-enter-active
-    transition: opacity .75s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transition: opacity .5s ease
 
   .fade-leave-active
-    transition: opacity .5s
+    transition: opacity .5s ease
 </style>

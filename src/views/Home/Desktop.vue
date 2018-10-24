@@ -1,16 +1,14 @@
 <template>
-  <div class="app-home">
+  <div class="app-home mobile">
     <app-hero />
     <app-quote />
     <app-skills />
     <app-gallery />
     <app-steps />
-    <app-footer />
   </div>
 </template>
 
 <script>
-import Footer from '@components/Footer/Footer';
 import Gallery from '@components/Gallery';
 import Hero from '@components/Hero/Hero';
 import Quote from '@components/Quote/Quote';
@@ -19,7 +17,6 @@ import Steps from '@components/Steps/Steps';
 
 export default {
   components: {
-    'app-footer': Footer,
     'app-gallery': Gallery,
     'app-hero': Hero,
     'app-quote': Quote,
@@ -30,21 +27,26 @@ export default {
 </script>
 
 <style lang="sass">
-$horizontal-padding: 80px
-$vertical-padding: 64px
+=styling($vertical-margin, $horizontal-padding)
+  .app-home.mobile
+    .app-hero
+      margin-bottom: $vertical-margin
 
-.app-hero
-  margin-bottom: $vertical-padding
+    .app-quote
+      margin: 0 0 $vertical-margin
+      padding: 0 $horizontal-padding
 
-.app-quote
-  margin: 0 $horizontal-padding $vertical-padding
+    .app-skills
+      margin: 0 0 $vertical-margin
+      padding: 0 $horizontal-padding
 
-.app-skills
-  margin: 0 $horizontal-padding $vertical-padding
+    .app-gallery
+      margin: 0 0 $vertical-margin
+      padding: 0 $horizontal-padding
 
-.app-gallery
-  margin: 0 $horizontal-padding $vertical-padding
++media-up(lg)
+  +styling($vertical-margin: 64px, $horizontal-padding: 32px)
 
-.app-footer
-  margin: $vertical-padding $horizontal-padding
++media-up(xl)
+  +styling($vertical-margin: 64px, $horizontal-padding: 64px)
 </style>

@@ -2,12 +2,7 @@
   <div id="app">
     <app-navbar />
 
-    <div 
-      :class="{ sticky: $store.state.navbar.isSticky && !$store.state.navbar.isOpen }" 
-      class="body"
-    >
-      <router-view />
-    </div>
+    <router-view />
 
     <app-footer />
   </div>
@@ -26,9 +21,19 @@ export default {
 </script>
 
 <style lang="sass">
-$horizontal-padding: 32px
-$vertical-padding: 64px
-
 .app-footer
-  margin: $vertical-padding $horizontal-padding
+  padding: 64px 32px
+
+=styling($vertical-padding, $horizontal-padding)
+  .app-footer
+    padding: $vertical-padding $horizontal-padding
+
++media-up(md)
+  +styling($vertical-padding: 64px, $horizontal-padding: 32px)
+
++media-up(lg)
+  +styling($vertical-padding: 64px, $horizontal-padding: 32px)
+
++media-up(xl)
+  +styling($vertical-padding: 64px, $horizontal-padding: 32px)
 </style>

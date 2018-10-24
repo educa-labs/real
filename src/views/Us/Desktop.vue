@@ -13,24 +13,22 @@
         />
       </transition>
     </div>
+
     <app-composed 
       :designers="designers" 
       @click="selectDesigner"
     />
-    <app-footer />
   </div>
 </template>
 
 <script>
 import Composed from '@components/Composed/Desktop';
 import Designer from '@components/Designer/Desktop';
-import Footer from '@components/Footer/Footer';
 
 export default {
   components: {
     'app-composed': Composed,
     'app-designer': Designer,
-    'app-footer': Footer,
   },
   data() {
     return {
@@ -80,11 +78,24 @@ export default {
 <style lang="sass">
 .app-us.desktop
   .designer-wrapper
-    padding: 32px 192px 32px 128px
-
     .fade-enter, .fade-leave-to
-      opacity: 0
+      opacity: .1
 
-    .fade-enter-active, .fade-leave-active
-      transition: opacity .1s
+    .fade-enter-active
+      transition: opacity .5s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+    .fade-leave-active
+      transition: opacity .75s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+=styling($margin, $padding)
+  .app-us.desktop
+    .designer-wrapper
+      margin: $margin
+      padding: $padding
+
++media-up(md)
+  +styling($margin: 32px 0 32px, $padding: 0 32px)
+
++media-up(xl)
+  +styling($margin: 32px 0 32px, $padding: 0 64px 0 64px)
 </style>

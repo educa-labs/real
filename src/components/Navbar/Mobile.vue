@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbar-wrapper mobile">
     <fixed-header 
       :fixed.sync="isSticky" 
       :threshold="isSticky ? 0 : 128"
@@ -8,13 +8,13 @@
         ref="header" 
         :style="{ zIndex: style.zIndex + 1 }" 
         :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" 
-        class="app-navbar-mobile"
+        class="app-navbar mobile"
       >
         <router-link 
           to="/" 
           @click.native="toggle"
         >
-          <app-logo />
+          <app-logo :version="1" />
         </router-link>
 
         <button 
@@ -29,7 +29,7 @@
     </fixed-header>
 
     <transition 
-      name="menu" 
+      name="slide" 
       @after-leave="isTransparent = false"
     >
       <div 
@@ -98,8 +98,8 @@ export default {
   watch: {
     isSticky(value) {
       this.$store.dispatch('updateNavbar', {
-        isSticky: this.isSticky,
         isOpen: this.isOpen,
+        isSticky: this.isSticky,
       });
 
       if (value && !this.isOpen) {
@@ -126,7 +126,9 @@ export default {
 </script>
 
 <style lang="sass">
-.app-navbar-mobile
+$navbar-height: 128px
+
+.app-navbar.mobile
   position: absolute
   width: 100%
   padding: 32px
@@ -140,25 +142,27 @@ export default {
   .menu-button i
     font-size: 48px
 
-.app-navbar-mobile.open
+.app-navbar.mobile.open
   .menu-button
     color: $c-white
 
-.app-navbar-mobile.sticky
+.app-navbar.mobile.sticky
   position: fixed
+  top: 0
   background-color: $c-white
 
-.app-navbar-mobile.transparent
+.app-navbar.mobile.transparent
   background-color: transparent
 
 .menu
-  $navbar-height: 128px
   $padding: 32px
 
   font-size: 24pt 
   background-color: rgba($c-primary, .8)
-  overflow: hidden
+  overflow-x: hidden
+  overflow-y: auto
 
+  +no-scrollbar
   +p-fixed(null, 0, 0, 0, 0)
 
   .content
@@ -183,9 +187,10 @@ export default {
   .name
     margin-bottom: 32px
 
-.menu-enter, .menu-leave-to
-  right: 100%
+.navbar-wrapper.mobile
+  .slide-enter, .slide-leave-to
+    right: 100%
 
-.menu-enter-active, .menu-leave-active
-  transition: right .25s cubic-bezier(0.645, 0.045, 0.355, 1)
+  .slide-enter-active, .slide-leave-active
+    transition: right .25s cubic-bezier(0.86, 0, 0.07, 1)
 </style>
