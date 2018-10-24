@@ -8,4 +8,7 @@ import routes from './routes'; // Routes
 export default new Router({
   mode: 'history',
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || { x: 0, y: 0, };
+  },
 });

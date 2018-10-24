@@ -1,15 +1,14 @@
 import Vue from 'vue';
-import App from './App.vue';
 import store from '@store';
 import router from '@router';
 
-// Vue Scroll Reveal (https://github.com/tserkov/vue-scroll-reveal)
-import VueScrollReveal from 'vue-scroll-reveal';
-Vue.use(VueScrollReveal);
+// API
+import API from '@API';
+Vue.prototype.$API = API;
 
-// Vue ScrollTo (https://github.com/rigor789/vue-scrollto)
-import VueScrollTo from 'vue-scrollto';
-Vue.use(VueScrollTo);
+// AnimeJS
+import anime from 'animejs';
+Vue.prototype.$a = anime; // Abbreviation
 
 // Vue MQ (https://github.com/AlexandreBonaventure/vue-mq)
 import VueMq from 'vue-mq';
@@ -20,9 +19,13 @@ Vue.use(VueMq, {
   },
 });
 
-// AnimeJS
-import anime from 'animejs';
-Vue.prototype.$a = anime; // Abbreviation
+// Vue ScrollTo (https://github.com/rigor789/vue-scrollto)
+import VueScrollTo from 'vue-scrollto';
+Vue.use(VueScrollTo);
+
+// Vue Scroll Reveal (https://github.com/tserkov/vue-scroll-reveal)
+import VueScrollReveal from 'vue-scroll-reveal';
+Vue.use(VueScrollReveal);
 
 // Global Components
 import Icon from '@components/global/Icon';
@@ -33,6 +36,8 @@ Vue.component('app-logo', Logo);
 
 // Stylesheets
 import '@stylesheets/index.sass';
+
+import App from './App.vue';
 
 Vue.config.productionTip = false;
 
