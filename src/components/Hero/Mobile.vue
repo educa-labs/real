@@ -2,14 +2,16 @@
   <div class="app-hero-mobile">
     <transition 
       name="fade" 
-      mode="out-in">
+      mode="out-in"
+    >
       <div 
         v-for="(concept, index) in concepts" 
         v-if="selected === index" 
         ref="image" 
         :key="`concept-${index}`" 
         :style="{ 'background-image': `url(${concept.image})` }" 
-        class="image" />
+        class="image"
+      />
     </transition>
 
     <div class="we-are">
@@ -17,7 +19,10 @@
         v-for="(concept, index) in concepts" 
         :key="`concept-${index}`" 
         :class="{active: selected === index}" 
-        @click="selected = index">{{ concept.name }}</div>
+        @click="selected = index"
+      >
+        {{ concept.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -40,7 +45,6 @@ export default {
         { name: 'color', image: require('@images/home/portfolio_5.png'), },
         { name: 'estrategia', image: require('@images/home/portfolio_6.png'), },
       ],
-      logo: require('@images/logo.svg'),
       selected: 0,
     };
   },

@@ -2,19 +2,22 @@
   <footer class="app-footer">
     <a 
       :href="instagram" 
-      target="_blank">
+      target="_blank"
+    >
       <img src="@images/instagram.svg">
     </a>
     <div class="separator" />
     <a 
       :href="linkedin" 
-      target="_blank">
+      target="_blank"
+    >
       <img src="@images/linkedin.svg">
     </a>
     <div class="separator" />
     <a 
       href="#" 
-      target="_blank">
+      target="_blank"
+    >
       <img src="@images/send.svg">
     </a>
   </footer>

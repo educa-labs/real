@@ -1,7 +1,8 @@
 <template>
   <div 
     ref="container" 
-    class="app-steps desktop" />
+    class="app-steps desktop"
+  />
 </template>
 
 <script>

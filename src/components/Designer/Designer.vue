@@ -1,10 +1,12 @@
 <template>
-  <app-designer-mobile 
+  <app-designer-mobile
     v-if="$mq === 'mobile'" 
-    v-bind="$props" />
+    v-bind="$props"
+  />
   <app-designer-desktop 
     v-else 
-    v-bind="$props" />
+    v-bind="$props"
+  />
 </template>
 
 <script>

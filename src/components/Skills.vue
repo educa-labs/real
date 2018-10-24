@@ -2,12 +2,16 @@
   <div class="app-skills">
     <div 
       v-for="(skill, index) in skills" 
-      :key="`skill-${index}`">
+      :key="`skill-${index}`"
+    >
       <h1>{{ skill.title }}</h1>
       <ul>
         <li 
           v-for="(item, index) in skill.items" 
-          :key="`item-${index}`">{{ item }}</li>
+          :key="`item-${index}`"
+        >
+          {{ item }}
+        </li>
       </ul>
     </div>
   </div>

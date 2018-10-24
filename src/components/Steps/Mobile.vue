@@ -1,7 +1,8 @@
 <template>
   <div 
     :class="{ active, first, last }" 
-    class="app-steps mobile">
+    class="app-steps mobile"
+  >
     <carousel 
       :per-page="1" 
       :navigation-enabled="true" 
@@ -9,15 +10,18 @@
       :navigation-prev-label="prevLabel" 
       :navigation-next-label="nextLabel" 
       class="carousel" 
-      @pageChange="pageChange">
+      @pageChange="pageChange"
+    >
       <slide 
         v-for="(step, index) in steps" 
-        :key="`step-${index}`">
+        :key="`step-${index}`"
+      >
         <div class="step-wrapper">
           <div class="step-container">
             <div 
               :class="{ first, last }" 
-              class="step">
+              class="step"
+            >
               {{ `0${index + 1}` }}
             </div>
 

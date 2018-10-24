@@ -4,8 +4,9 @@
 
     <div 
       :class="{ sticky: $store.state.navbar.isSticky && !$store.state.navbar.isOpen }" 
-      class="body">
-      <router-view/>
+      class="body"
+    >
+      <router-view />
     </div>
 
     <app-footer />

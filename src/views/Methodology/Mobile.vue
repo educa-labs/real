@@ -3,26 +3,31 @@
     <h1>Metodología</h1>
     <div 
       v-for="(step, index) in steps" 
-      :key="`step-${index}`">
+      :key="`step-${index}`"
+    >
       <template v-if="index === 0">
         <div 
-          v-scroll-reveal 
           ref="steps" 
-          class="step">
+          v-scroll-reveal 
+          class="step"
+        >
           {{ step }}
         </div>
       </template>
       <div 
-        v-scroll-reveal 
-        v-else>
+        v-else 
+        v-scroll-reveal
+      >
         <div 
           ref="lines" 
           :style="connections[index - 1]" 
-          class="line" />
+          class="line"
+        />
         <div 
           ref="steps" 
           :class="{ last: index === steps.length - 1 }" 
-          class="step">
+          class="step"
+        >
           {{ step }}
         </div>
       </div>

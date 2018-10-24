@@ -4,7 +4,10 @@
       v-for="(designer, index) in designers" 
       :key="`designer-${index}`" 
       :style="{ 'background-image': `url(${designer.image})` }" 
-      @click="$emit('click', index)">{{ designer.nickname }}</div>
+      @click="$emit('click', index)"
+    >
+      {{ designer.nickname }}
+    </div>
   </div>
 </template>
 

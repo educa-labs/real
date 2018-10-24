@@ -7,11 +7,13 @@
       v-if="selected === index" 
       :key="`designer-${index}`" 
       :designer="designer" 
-      @close="selected = null" />
+      @close="selected = null"
+    />
 
     <app-composed 
       :designers="designers" 
-      @click="selectDesigner" />
+      @click="selectDesigner"
+    />
   </div>
 </template>
 

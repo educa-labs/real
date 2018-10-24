@@ -2,16 +2,23 @@
   <div :class="['app-portfolio', `type-${type}`]">
     <div 
       :style="{ 'background-image': `url(${mainImage})` }" 
-      class="image main" />
+      class="image main"
+    />
 
     <div class="content">
       <div class="navigation">
         <button 
           type="button" 
-          class="prev">Anterior</button>
+          class="prev"
+        >
+          Anterior
+        </button>
         <button 
           type="button" 
-          class="next">Siguiente</button>
+          class="next"
+        >
+          Siguiente
+        </button>
       </div>
 
       <div class="client">
@@ -23,11 +30,15 @@
       <div class="tags">
         <span 
           v-for="(tag, index) in tags" 
-          :key="`tag-${index}`">{{ `#${tag}${index &lt; tags.length - 1 ? ', ' : '' }` }}</span> </div> <div class="problem">
-            <div class="title">Problemática</div>
+          :key="`tag-${index}`"
+        >
+          {{ `#${tag}${index &lt; tags.length - 1 ? ', ' : '' }` }}
+        </span>
+      </div> <div class="problem">
+        <div class="title">Problemática</div>
 
-            <p>{{ problem }}</p>
-          </div>
+        <p>{{ problem }}</p>
+      </div>
 
       <div class="solution">
         <div class="title">Solución</div>

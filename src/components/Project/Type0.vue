@@ -3,13 +3,15 @@
     <div class="image-wrapper">
       <div 
         :style="{ 'background-image': `url(${images[0]})` }" 
-        class="image" />
+        class="image"
+      />
     </div>
 
     <div class="image-wrapper">
       <div 
         :style="{ 'background-image': `url(${images[1]})` }" 
-        class="image" />
+        class="image"
+      />
 
       <h1>{{ quote }}</h1>
     </div>
@@ -17,13 +19,15 @@
     <div class="image-wrapper">
       <div 
         :style="{ 'background-image': `url(${images[2]})` }" 
-        class="image" />
+        class="image"
+      />
     </div>
 
     <div class="image-wrapper">
       <div 
         :style="{ 'background-image': `url(${images[3]})` }" 
-        class="image" />
+        class="image"
+      />
     </div>
   </div>
 </template>

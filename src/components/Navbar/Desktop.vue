@@ -1,26 +1,31 @@
 <template>
   <div>
-    <header class="app-navbar">
-      <router-link to="/">
-        <app-logo />
-      </router-link>
+    <fixed-header 
+      :fixed.sync="isSticky" 
+      :threshold="isSticky ? 0 : 128"
+    >
+      <header class="app-navbar">
+        <router-link to="/">
+          <app-logo />
+        </router-link>
 
-      <div>
-        <router-link to="/us">
-          <div>Nosotros</div>
-        </router-link>
-        <router-link to="/portfolio">
-          <div>Trabajo</div>
-        </router-link>
-        <router-link to="/methodology">
-          <div>Metodología</div>
-        </router-link>
-        <router-link to="/contact">
-          <div>Contacto</div>
-        </router-link>
-      </div>
-      <div class="e-mail">hola@somosreal.cl</div>
-    </header>
+        <div>
+          <router-link to="/us">
+            <div>Nosotros</div>
+          </router-link>
+          <router-link to="/portfolio">
+            <div>Trabajo</div>
+          </router-link>
+          <router-link to="/methodology">
+            <div>Metodología</div>
+          </router-link>
+          <router-link to="/contact">
+            <div>Contacto</div>
+          </router-link>
+        </div>
+        <div class="e-mail">hola@somosreal.cl</div>
+      </header>
+    </fixed-header>
   </div>
 </template>
 

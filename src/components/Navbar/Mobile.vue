@@ -2,22 +2,26 @@
   <div>
     <fixed-header 
       :fixed.sync="isSticky" 
-      :threshold="isSticky ? 0 : 128">
+      :threshold="isSticky ? 0 : 128"
+    >
       <header 
         ref="header" 
         :style="{ zIndex: style.zIndex + 1 }" 
         :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" 
-        class="app-navbar-mobile">
+        class="app-navbar-mobile"
+      >
         <router-link 
           to="/" 
-          @click.native="toggle">
+          @click.native="toggle"
+        >
           <app-logo />
         </router-link>
 
         <button 
           type="button" 
           class="menu-button" 
-          @click="toggle">
+          @click="toggle"
+        >
           <app-icon v-if="!isOpen">menu</app-icon>
           <app-icon v-else>close</app-icon>
         </button>
@@ -26,31 +30,39 @@
 
     <transition 
       name="menu" 
-      @after-leave="isTransparent = false">
+      @after-leave="isTransparent = false"
+    >
       <div 
         v-show="isOpen" 
         :style="{ zIndex: style.zIndex }" 
-        class="menu">
+        class="menu"
+      >
         <div class="content">
           <div class="links">
             <router-link 
               to="/us" 
-              @click.native="toggle">
+              @click.native="toggle"
+            >
               <div>Nosotros</div>
             </router-link>
+
             <router-link 
               to="/portfolio" 
-              @click.native="toggle">
+              @click.native="toggle"
+            >
               <div>Trabajo</div>
             </router-link>
+
             <router-link 
               to="/methodology" 
-              @click.native="toggle">
+              @click.native="toggle"
+            >
               <div>Metodología</div>
             </router-link>
             <router-link 
               to="/contact" 
-              @click.native="toggle">
+              @click.native="toggle"
+            >
               <div>Contacto</div>
             </router-link>
           </div>

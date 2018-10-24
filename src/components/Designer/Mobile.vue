@@ -3,13 +3,17 @@
     <app-icon 
       :button="true" 
       class="close" 
-      @click="close">close</app-icon>
+      @click="close"
+    >
+      close
+    </app-icon>
 
     <div class="she">
       <div class="nickname">{{ designer.nickname }}</div>
       <div 
         :style="{ 'background-image': `url(${designer.image})` }" 
-        class="image" />
+        class="image"
+      />
     </div>
 
     <div class="description">{{ designer.description }}</div>

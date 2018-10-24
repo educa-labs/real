@@ -3,17 +3,20 @@
     <div class="designer-wrapper">
       <transition 
         name="fade" 
-        mode="out-in">
+        mode="out-in"
+      >
         <app-designer 
           v-for="(designer, index) in designers" 
           v-if="selected === index" 
           :key="`designer-${index}`" 
-          :designer="designer" />
+          :designer="designer"
+        />
       </transition>
     </div>
     <app-composed 
       :designers="designers" 
-      @click="selectDesigner" />
+      @click="selectDesigner"
+    />
     <app-footer />
   </div>
 </template>

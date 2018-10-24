@@ -2,7 +2,8 @@
   <div class="app-hero">
     <div 
       ref="overlay" 
-      class="overlay" />
+      class="overlay"
+    />
     <div class="content">
       <app-logo />
       <div class="social-media-container">
@@ -14,19 +15,24 @@
           v-for="(concept, index) in concepts" 
           :key="`concept-${index}`" 
           :class="{active: selected === index}" 
-          @mouseover="selected = index">{{ concept.name }}</div>
+          @mouseover="selected = index"
+        >
+          {{ concept.name }}
+        </div>
       </div>
     </div>
     <transition 
       name="fade" 
-      mode="out-in">
+      mode="out-in"
+    >
       <div 
         v-for="(concept, index) in concepts" 
         v-if="selected === index" 
         ref="image" 
         :key="`concept-${index}`" 
         :style="{ 'background-image': `url(${concept.image})` }" 
-        class="image" />
+        class="image"
+      />
     </transition>
   </div>
 </template>

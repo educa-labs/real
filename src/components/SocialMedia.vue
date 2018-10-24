@@ -1,33 +1,43 @@
 <template>
   <div 
     :class="{ vertical, white }" 
-    class="app-social-media">
+    class="app-social-media"
+  >
     <a 
       :href="instagram" 
-      target="_blank">
+      target="_blank"
+    >
       <img 
         v-if="!white" 
-        src="@images/instagram.svg">
+        src="@images/instagram.svg"
+      >
       <img 
         v-else 
-        src="@images/instagram-white.svg">
+        src="@images/instagram-white.svg"
+      >
     </a>
     <div class="separator" />
     <a 
       :href="linkedin" 
-      target="_blank">
+      target="_blank"
+    >
       <img 
         v-if="!white" 
-        src="@images/linkedin.svg">
+        src="@images/linkedin.svg"
+      >
       <img 
         v-else 
-        src="@images/linkedin-white.svg">
+        src="@images/linkedin-white.svg"
+      >
     </a>
     <template v-if="tumblr">
       <div class="separator" />
       <a 
         :href="tumblr" 
-        target="_blank">visita sus referencias</a>
+        target="_blank"
+      >
+        visita sus referencias
+      </a>
     </template>
   </div>
 </template>
