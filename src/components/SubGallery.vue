@@ -74,6 +74,8 @@ export default {
   height: 100vh
 
   div
+    visibility: hidden
+
     +background-image
   
 .fade-in-enter
