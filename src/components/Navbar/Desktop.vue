@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       isSticky: false,
+      animation: null,
     };
   },
   watch: {
@@ -54,13 +55,15 @@ export default {
       });
 
       if (value) {
-        this.$a({
+        this.animation = this.$a({
           targets: this.$refs.header,
           opacity: [0, 1,],
           duration: 500,
           easing: [0.645, 0.045, 0.355, 1,],
         });
       } else if (this.$route.name === 'home') {
+        this.animation && this.animation.pause();
+
         this.$a({
           targets: this.$refs.header,
           opacity: [1, 0,],
