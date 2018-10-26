@@ -12,7 +12,7 @@
       >
         <router-link 
           to="/" 
-          @click.native="toggle"
+          @click.native="() => isOpen && open()"
         >
           <app-logo :version="1" />
         </router-link>
@@ -113,12 +113,18 @@ export default {
     },
   },
   methods: {
+    open() {
+      this.isOpen = true;
+      this.isTransparent = true;
+    },
+    close() {
+      this.isOpen = false;
+    },
     toggle() {
       if (!this.isOpen) {
-        this.isOpen = true;
-        this.isTransparent = true;
+        this.open();
       } else {
-        this.isOpen = false;
+        this.close();
       }
     },
   },
