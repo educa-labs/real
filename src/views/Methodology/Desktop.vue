@@ -8,7 +8,7 @@
         <div 
           ref="steps" 
           v-scroll-reveal 
-          class="step"
+          class="step" 
           :style="stepStyle(index)"
         >
           {{ step }}
@@ -26,7 +26,7 @@
         <div 
           ref="steps" 
           :class="{ last: index === steps.length - 1 }" 
-          class="step"
+          class="step" 
           :style="stepStyle(index)"
         >
           {{ step }}
@@ -51,27 +51,36 @@ export default {
     };
   },
   mounted() {
-    for (let i = 0; i < this.$refs.steps.length - 1; i++) {
-      this.connections.push(
-        this.connect(this.$refs.steps[i], this.$refs.steps[i + 1])
-      );
-    }
+    this.$nextTick(() => {
+      this.updateConnections();
+
+      window.addEventListener('resize', this.updateConnections);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateConnections);
   },
   methods: {
     stepStyle(index) {
       if (index % 2 === 0) {
-        return { 'margin-left': '100%', }
-      } else return { 'margin-right': '100%', }
+        return { 'margin-left': '100%', };
+      } else return { 'margin-right': '100%', };
     },
     connect(stepA, stepB) {
       const pA = stepA.getBoundingClientRect();
       const pB = stepB.getBoundingClientRect();
 
-      const w = Math.abs(pB.x - pA.x);
-      const h = Math.abs(pB.y - pA.y);
+      pA.x += window.scrollX;
+      pA.y += window.scrollY;
+
+      pB.x += window.scrollX;
+      pB.y += window.scrollY;
+
+      const w = pB.x - pA.x;
+      const h = pB.y - pA.y;
 
       const width = Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2));
-      const rad = w === 0 ? Math.PI / 2 : Math.atan(h / w);
+      const rad = Math.atan2(pB.y - pA.y, pB.x - pA.x);
 
       return {
         top: `${pA.y + pA.height / 2}px`,
@@ -79,6 +88,13 @@ export default {
         width: `${width}px`,
         transform: `rotate(${rad}rad)`,
       };
+    },
+    updateConnections() {
+      this.connections = [...Array(this.$refs.steps.length - 1).keys(),].map(
+        i => {
+          return this.connect(this.$refs.steps[i], this.$refs.steps[i + 1]);
+        }
+      );
     },
   },
 };
