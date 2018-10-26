@@ -9,6 +9,7 @@
           ref="steps" 
           v-scroll-reveal 
           class="step"
+          :style="stepStyle(index)"
         >
           {{ step }}
         </div>
@@ -26,6 +27,7 @@
           ref="steps" 
           :class="{ last: index === steps.length - 1 }" 
           class="step"
+          :style="stepStyle(index)"
         >
           {{ step }}
         </div>
@@ -56,6 +58,11 @@ export default {
     }
   },
   methods: {
+    stepStyle(index) {
+      if (index % 2 === 0) {
+        return { 'margin-left': '100%', }
+      } else return { 'margin-right': '100%', }
+    },
     connect(stepA, stepB) {
       const pA = stepA.getBoundingClientRect();
       const pB = stepB.getBoundingClientRect();
@@ -82,6 +89,7 @@ export default {
   padding-top: 128px
   flex-direction: column
   min-height: 100vh
+  background-color: $c-primary
 
   +d-flex(center, center)
 
@@ -93,8 +101,8 @@ export default {
   .step
     position: relative
     z-index: 1
-    color: $c-white
-    background-color: $c-primary
+    color: $c-primary
+    background-color: $c-white
     margin-bottom: 100px // Temporal...
     font-size: 22pt
     font-weight: 700
@@ -110,6 +118,6 @@ export default {
   .line
     position: absolute
     height: 8px
-    background-color: $c-primary
+    background-color: $c-white
     transform-origin: 0% center
 </style>

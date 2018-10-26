@@ -10,6 +10,7 @@
         <button 
           type="button" 
           class="prev"
+          @click="$emit('previous')"
         >
           Anterior
         </button>
@@ -17,6 +18,7 @@
         <button 
           type="button" 
           class="next"
+          @click="$emit('next')"
         >
           Siguiente
         </button>

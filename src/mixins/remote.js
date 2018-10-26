@@ -11,6 +11,7 @@ export default {
   methods: {
     async fetch() {
       this.response = await this.query();
+
       this.fetched = true;
     },
   },

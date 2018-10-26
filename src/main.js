@@ -10,6 +10,10 @@ Vue.prototype.$API = API;
 import anime from 'animejs';
 Vue.prototype.$a = anime; // Abbreviation
 
+// Underscore
+import _ from 'underscore';
+Vue.prototype.$_ = _;
+
 // Vue MQ (https://github.com/AlexandreBonaventure/vue-mq)
 import VueMq from 'vue-mq';
 Vue.use(VueMq, {
