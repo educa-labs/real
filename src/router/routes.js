@@ -1,8 +1,8 @@
-import Home from '@views/Home/Home';
 import Contact from '@views/Contact';
+import Home from '@views/Home/Home';
 import Methodology from '@views/Methodology/Methodology';
 import Portfolio from '@views/Portfolio/Portfolio';
-import Portfolio2 from '@views/Portfolio/Idk';
+import Project from '@views/Project';
 import Us from '@views/Us/Us';
 
 export default [
@@ -23,12 +23,12 @@ export default [
   },
   {
     path: '/portfolio',
-    component: Portfolio2,
+    component: Portfolio,
     name: 'portfolio',
   },
   {
     path: '/portfolio/:id',
-    component: Portfolio,
+    component: Project,
     props: route => ({ id: Number(route.params.id), }),
   },
   {

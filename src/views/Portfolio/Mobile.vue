@@ -27,12 +27,7 @@
 </template>
 
 <script>
-import Project from '@components/Project/Mobile';
-
 export default {
-  components: {
-    'app-project': Project,
-  },
   data() {
     return {
       projects: [
