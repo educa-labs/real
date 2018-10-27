@@ -29,7 +29,7 @@ export default [
   {
     path: '/portfolio/:id',
     component: Project,
-    props: route => ({ id: Number(route.params.id), }),
+    props: true,
   },
   {
     path: '/us',

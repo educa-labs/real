@@ -18,11 +18,5 @@ export default {
     'app-portfolio-desktop': Desktop,
     'app-portfolio-mobile': Mobile,
   },
-  props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-  },
 };
 </script>

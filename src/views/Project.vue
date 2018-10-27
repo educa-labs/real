@@ -23,7 +23,7 @@ export default {
   mixins: [remote,],
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
   },

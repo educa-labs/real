@@ -44,6 +44,10 @@ export default {
       margin: 0 0 $vertical-margin
       padding: 0 $horizontal-padding
 
+    .app-steps
+      margin: 0 0 $vertical-margin
+      padding: 0 $horizontal-padding
+
 +media-up(lg)
   +styling($vertical-margin: 64px, $horizontal-padding: 32px)
 
