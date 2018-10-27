@@ -2,8 +2,17 @@
   <div class="app-methodology desktop">
     <template v-for="index in steps.length">
       <template v-if="index - 1 === 0">
-        <div class="step-container" v-scroll-reveal :key="index" :style="style.stepsContainers[index - 1]">
-          <div ref="steps" :style="style.steps[index - 1]" class="step">
+        <div 
+          :key="index" 
+          v-scroll-reveal="{ delay: 250 }" 
+          class="step-container" 
+          :style="style.stepsContainers[index - 1]"
+        >
+          <div 
+            ref="steps" 
+            :style="style.steps[index - 1]" 
+            class="step"
+          >
             {{ steps[index - 1].name }}
           </div>
 
@@ -13,18 +22,38 @@
             </div>
 
             <ul class="concepts">
-              <li v-for="(concept, index) in steps[index - 1].concepts" :key="`concept-${index}`">
-                {{concept}}
+              <li 
+                v-for="(concept, index) in steps[index - 1].concepts" 
+                :key="`concept-${index}`"
+              >
+                {{ concept }}
               </li>
             </ul>
           </div>
         </div>
       </template>
 
-      <div v-else v-scroll-reveal :key="index">
-        <div ref="lines" :style="style.connections[index - 2]" class="line" />
-        <div class="step-container" :key="index" :style="style.stepsContainers[index - 1]">
-          <div ref="steps" :style="style.steps[index - 1]" :class="{ last: index === steps.length }" class="step">
+      <div 
+        v-else 
+        :key="index" 
+        v-scroll-reveal="{delay: 250}"
+      >
+        <div 
+          ref="lines" 
+          :style="style.connections[index - 2]" 
+          class="line"
+        />
+        <div 
+          :key="index" 
+          class="step-container" 
+          :style="style.stepsContainers[index - 1]"
+        >
+          <div 
+            ref="steps" 
+            :style="style.steps[index - 1]" 
+            :class="{ last: index === steps.length }" 
+            class="step"
+          >
             {{ steps[index - 1].name }}
           </div>
 
@@ -34,8 +63,11 @@
             </div>
 
             <ul class="concepts">
-              <li v-for="(concept, index) in steps[index - 1].concepts" :key="`concept-${index}`">
-                {{concept}}
+              <li 
+                v-for="(concept, index) in steps[index - 1].concepts" 
+                :key="`concept-${index}`"
+              >
+                {{ concept }}
               </li>
             </ul>
           </div>
@@ -54,13 +86,13 @@ export default {
           name: 'Inmersión',
           description:
             'Cras viverra, sem a tristique aliquam, arcu ex venenatis felis, ut facilisis turpis risus sed purus. Mauris vitae ultricies sapien. Pellentesque at nibh sed nisl aliquet imperdiet. Sed blandit arcu eros, quis luctus lorem ullamcorper quis. In a dolor condimentum dui dapibus tincidunt in quis nisl.',
-          concepts: ['Levantamiento', 'Investigación', 'Estudio'],
+          concepts: ['Levantamiento', 'Investigación', 'Estudio',],
         },
         {
           name: 'Aterrizaje e Intercambio',
           description:
             'Quisque egestas imperdiet accumsan. In odio lacus, finibus vitae risus eget, vulputate dignissim velit. Sed sollicitudin efficitur dui.',
-          concepts: ['Conceptualización', 'Narrativa'],
+          concepts: ['Conceptualización', 'Narrativa',],
         },
         {
           name: 'Lab-creativo',
@@ -89,13 +121,13 @@ export default {
           name: 'Finalización',
           description:
             'Mauris varius, lectus eu euismod mattis, odio libero iaculis dolor, et lacinia augue lorem in lectus. Donec porttitor erat eget lobortis maximus. Cras viverra, sem a tristique aliquam.',
-          concepts: ['Entrega proyecto'],
+          concepts: ['Entrega proyecto',],
         },
         {
           name: 'Seguimiento',
           description:
             'Aliquam accumsan ipsum semper, convallis lectus nec, pellentesque erat. Donec rhoncus dui urna.',
-          concepts: ['Evaluación', 'Contacto', 'Comunicación'],
+          concepts: ['Evaluación', 'Contacto', 'Comunicación',],
         },
       ],
       style: {

@@ -13,19 +13,21 @@
           @click="toggleItem(item)"
         >
           <div
-          :class="{ selected: item.selected }" 
-          >{{ item.value }}</div> 
+            :class="{ selected: item.selected }" 
+          >
+            {{ item.value }}
+          </div> 
         </li>
       </ul>
     </div>
 
     <div>
-    <h5 
-      class="all name" 
-      @click="clear"
-    >
-      {{ all }}
-    </h5>
+      <h5 
+        class="all name" 
+        @click="clear"
+      >
+        {{ all }}
+      </h5>
     </div>
   </div>
 </template>

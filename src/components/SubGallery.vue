@@ -1,14 +1,21 @@
 <template>
-  <div :style="{ 'grid-template-rows': `repeat(${4}, 1fr)`, 'grid-template-columns': `repeat(${4}, 1fr)` }" class="app-sub-gallery">
+  <div 
+    :style="{ 'grid-template-rows': `repeat(${4}, 1fr)`, 'grid-template-columns': `repeat(${4}, 1fr)` }" 
+    class="app-sub-gallery"
+  >
     <template v-for="i in rows.length - 1">
       <template v-for="j in columns[i - 1].length - 1">
-        <div :key="`${i}, ${j}`" v-scroll-reveal="{
+        <div 
+          :key="`${i}, ${j}`" 
+          v-scroll-reveal="{
             easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-          }" :style="{
+          }" 
+          :style="{
             'grid-row': `${columns[i - 1][j - 1]}/${columns[i - 1][j]}`,
             'grid-column': `${rows[i - 1]}/${rows[i]}`,
             'background-image': `url(${images[random(0, images.length - 1)]})`,
-          }" />
+          }"
+        />
       </template>
     </template>
   </div>
