@@ -1,38 +1,47 @@
 <template>
   <div class="app-methodology desktop">
-    <div 
-      v-for="(step, index) in steps" 
-      :key="`step-${index}`"
-    >
-      <template v-if="index === 0">
-        <div 
-          ref="steps" 
-          v-scroll-reveal 
-          class="step" 
-          :style="stepStyle(index)"
-        >
-          {{ step }}
+    <template v-for="index in steps.length">
+      <template v-if="index - 1 === 0">
+        <div class="step-container" v-scroll-reveal :key="index" :style="style.stepsContainers[index - 1]">
+          <div ref="steps" :style="style.steps[index - 1]" class="step">
+            {{ steps[index - 1].name }}
+          </div>
+
+          <div class="step-content">
+            <div class="description">
+              {{ steps[index - 1].description }}
+            </div>
+
+            <ul class="concepts">
+              <li v-for="(concept, index) in steps[index - 1].concepts" :key="`concept-${index}`">
+                {{concept}}
+              </li>
+            </ul>
+          </div>
         </div>
       </template>
-      <div 
-        v-else 
-        v-scroll-reveal
-      >
-        <div 
-          ref="lines" 
-          :style="connections[index - 1]" 
-          class="line"
-        />
-        <div 
-          ref="steps" 
-          :class="{ last: index === steps.length - 1 }" 
-          class="step" 
-          :style="stepStyle(index)"
-        >
-          {{ step }}
+
+      <div v-else v-scroll-reveal :key="index">
+        <div ref="lines" :style="style.connections[index - 2]" class="line" />
+        <div class="step-container" :key="index" :style="style.stepsContainers[index - 1]">
+          <div ref="steps" :style="style.steps[index - 1]" :class="{ last: index === steps.length }" class="step">
+            {{ steps[index - 1].name }}
+          </div>
+
+          <div class="step-content">
+            <div class="description">
+              {{ steps[index - 1].description }}
+            </div>
+
+            <ul class="concepts">
+              <li v-for="(concept, index) in steps[index - 1].concepts" :key="`concept-${index}`">
+                {{concept}}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -41,13 +50,109 @@ export default {
   data() {
     return {
       steps: [
-        'Inmersión',
-        'Aterrizaje e Intercambio',
-        'Lab-creativo',
-        'Materialización',
-        'Seguimiento',
+        {
+          name: 'Inmersión',
+          description:
+            'Cras viverra, sem a tristique aliquam, arcu ex venenatis felis, ut facilisis turpis risus sed purus. Mauris vitae ultricies sapien. Pellentesque at nibh sed nisl aliquet imperdiet. Sed blandit arcu eros, quis luctus lorem ullamcorper quis. In a dolor condimentum dui dapibus tincidunt in quis nisl.',
+          concepts: ['Levantamiento', 'Investigación', 'Estudio'],
+        },
+        {
+          name: 'Aterrizaje e Intercambio',
+          description:
+            'Quisque egestas imperdiet accumsan. In odio lacus, finibus vitae risus eget, vulputate dignissim velit. Sed sollicitudin efficitur dui.',
+          concepts: ['Conceptualización', 'Narrativa'],
+        },
+        {
+          name: 'Lab-creativo',
+          description:
+            'Quisque accumsan sit amet odio nec sodales. Sed molestie in augue et facilisis. Curabitur luctus orci in dui facilisis, in tincidunt dui viverra.',
+          concepts: [
+            'Brainstorming',
+            'Propuestas',
+            'Visualizaciones',
+            'Prototipos',
+            'Testeo / Intercambio',
+            'Rediseño',
+          ],
+        },
+        {
+          name: 'Materialización',
+          description:
+            'Nam sit amet pulvinar ligula. Fusce mollis tincidunt dictum. Duis eget dictum ligula.',
+          concepts: [
+            'Implementación',
+            'Gestión general',
+            'Vínculo con proveedores',
+          ],
+        },
+        {
+          name: 'Finalización',
+          description:
+            'Mauris varius, lectus eu euismod mattis, odio libero iaculis dolor, et lacinia augue lorem in lectus. Donec porttitor erat eget lobortis maximus. Cras viverra, sem a tristique aliquam.',
+          concepts: ['Entrega proyecto'],
+        },
+        {
+          name: 'Seguimiento',
+          description:
+            'Aliquam accumsan ipsum semper, convallis lectus nec, pellentesque erat. Donec rhoncus dui urna.',
+          concepts: ['Evaluación', 'Contacto', 'Comunicación'],
+        },
       ],
-      connections: [],
+      style: {
+        stepsContainers: [
+          {
+            justifyContent: 'flex-start',
+            marginLeft: '15%',
+          },
+          {
+            justifyContent: 'flex-end',
+            marginRight: '15%',
+          },
+          {
+            justifyContent: 'flex-start',
+            marginLeft: '20%',
+          },
+          {
+            justifyContent: 'flex-end',
+            marginRight: '20%',
+          },
+          {
+            justifyContent: 'flex-start',
+            marginLeft: '15%',
+          },
+          {
+            justifyContent: 'flex-end',
+            marginRight: '15%',
+          },
+        ],
+        steps: [
+          {
+            width: '250px',
+            height: '250px',
+          },
+          {
+            width: '250px',
+            height: '250px',
+          },
+          {
+            width: '350px',
+            height: '350px',
+          },
+          {
+            width: '300px',
+            height: '300px',
+          },
+          {
+            width: '250px',
+            height: '250px',
+          },
+          {
+            width: '250px',
+            height: '250px',
+          },
+        ],
+        connections: [],
+      },
     };
   },
   mounted() {
@@ -61,11 +166,6 @@ export default {
     window.removeEventListener('resize', this.updateConnections);
   },
   methods: {
-    stepStyle(index) {
-      if (index % 2 === 0) {
-        return { 'margin-left': '100%', };
-      } else return { 'margin-right': '100%', };
-    },
     connect(stepA, stepB) {
       const pA = stepA.getBoundingClientRect();
       const pB = stepB.getBoundingClientRect();
@@ -90,10 +190,10 @@ export default {
       };
     },
     updateConnections() {
-      this.connections = [...Array(this.$refs.steps.length - 1).keys(),].map(
-        i => {
-          return this.connect(this.$refs.steps[i], this.$refs.steps[i + 1]);
-        }
+      this.style.connections = [
+        ...Array(this.$refs.steps.length - 1).keys(),
+      ].map(index =>
+        this.connect(this.$refs.steps[index], this.$refs.steps[index + 1])
       );
     },
   },
@@ -103,11 +203,8 @@ export default {
 <style lang="sass">
 .app-methodology.desktop
   padding-top: 128px
-  flex-direction: column
   min-height: 100vh
   background-color: $c-primary
-
-  +d-flex(center, center)
 
   h1
     width: 100%
@@ -119,7 +216,6 @@ export default {
     z-index: 1
     color: $c-primary
     background-color: $c-white
-    margin-bottom: 100px // Temporal...
     font-size: 22pt
     font-weight: 700
     border-radius: 50%
@@ -136,4 +232,24 @@ export default {
     height: 8px
     background-color: $c-white
     transform-origin: 0% center
+
+.app-methodology.desktop
+  .step-container
+    margin-bottom: 100px // Temporal...
+
+    +d-flex(center)
+
+  .step-content
+    $margin: 32px
+    color: $c-white
+    margin-left: $margin
+
+    .description
+      width: 300px
+      margin-bottom: 16px
+      font-size: $f-size-sm
+
+    .concepts
+      font-family: $f-family-secondary
+      margin-left: 64px
 </style>
