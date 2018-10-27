@@ -10,20 +10,23 @@
         <li 
           v-for="(item, index) in filter.items" 
           :key="`item-${index}`" 
-          :class="{ selected: item.selected }" 
           @click="toggleItem(item)"
         >
-          {{ item.value }}
+          <div
+          :class="{ selected: item.selected }" 
+          >{{ item.value }}</div> 
         </li>
       </ul>
     </div>
 
+    <div>
     <h5 
       class="all name" 
       @click="clear"
     >
       {{ all }}
     </h5>
+    </div>
   </div>
 </template>
 
@@ -98,8 +101,11 @@ export default {
 
 <style lang="sass">
 .filter
-  display: flex
   padding-top: 200px
+
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  width: 600px
 
 .filter > div
   display: flex
@@ -111,8 +117,9 @@ export default {
 .filter .all
   cursor: pointer
 
-.filter li
+.filter li > div
   cursor: pointer
+  display: inline-block
 
   &.selected
     position: relative
