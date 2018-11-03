@@ -2,28 +2,13 @@
   <div class="app-steps desktop">
     <template v-for="index in steps.length">
       <template v-if="index - 1 === 0">
-        <app-step 
-          ref="steps" 
-          :key="`step-${index}`" 
-          :inner-text="`0${index}`" 
-          :outer-text="steps[index - 1].name"
-        />
+        <app-step ref="steps" :key="`step-${index}`" :inner-text="`0${index}`" :outer-text="steps[index - 1].name" @update="updateConnections"/>
       </template>
 
       <template v-else>
-        <div 
-          ref="lines" 
-          :key="`line-${index}`" 
-          :style="style.connections[index - 2]" 
-          class="line"
-        />
+        <div ref="lines" :key="`line-${index}`" :style="style.connections[index - 2]" class="line" />
 
-        <app-step 
-          ref="steps" 
-          :key="`step-${index}`" 
-          :inner-text="`0${index}`" 
-          :outer-text="steps[index - 1].name"
-        />
+        <app-step ref="steps" :key="`step-${index}`" :inner-text="`0${index}`" :outer-text="steps[index - 1].name" @update="updateConnections"/>
       </template>
     </template>
   </div>
@@ -41,32 +26,26 @@ export default {
       steps: [
         {
           name: 'Inmersión',
-          isActive: false,
         },
         {
           name: 'Aterrizaje e Intercambio',
-          isActive: false,
         },
         {
           name: 'Lab-creativo',
-          isActive: false,
         },
         {
           name: 'Materialización',
-          isActive: false,
         },
         {
           name: 'Finalización',
-          isActive: false,
         },
         {
           name: 'Seguimiento',
-          isActive: false,
         },
       ],
       style: {
-        stepsContainers: [{}, {}, {}, {}, {}, {},],
-        steps: [{}, {}, {}, {}, {}, {},],
+        stepsContainers: [{}, {}, {}, {}, {}, {}],
+        steps: [{}, {}, {}, {}, {}, {}],
         connections: [],
       },
     };
@@ -109,10 +88,12 @@ export default {
       this.style.connections = [
         ...Array(this.$refs.steps.length - 1).keys(),
       ].map(index =>
-        this.connect(this.$refs.steps[index].$el, this.$refs.steps[index + 1].$el)
+        this.connect(
+          this.$refs.steps[index].$refs.circle,
+          this.$refs.steps[index + 1].$refs.circle
+        )
       );
     },
-    hover() {},
   },
 };
 </script>
@@ -120,19 +101,6 @@ export default {
 <style lang="sass">
 .app-steps.desktop
   +d-flex(center, space-between)
-
-  .step
-    position: relative
-    z-index: 1
-    font-size: 22pt
-    font-weight: 700
-    text-align: center
-    color: $c-white
-    background-color: $c-primary
-    border-radius: 50%
-
-    +size(75px)
-    +d-flex(center, center)
 
   .line
     position: absolute
