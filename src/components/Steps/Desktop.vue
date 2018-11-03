@@ -48,17 +48,20 @@ export default {
         steps: [{}, {}, {}, {}, {}, {}],
         connections: [],
       },
+      interval: null,
     };
   },
   mounted() {
     this.$nextTick(() => {
       this.updateConnections();
 
-      window.addEventListener('resize', this.updateConnections);
+      if (this.interval) clearInterval(this.interval);
+
+      this.interval = setInterval(this.updateConnections, 10);
     });
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.updateConnections);
+    if (this.interval) clearInterval(this.interval);
   },
   methods: {
     connect(stepA, stepB) {
