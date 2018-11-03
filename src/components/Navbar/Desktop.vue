@@ -5,8 +5,8 @@
   >
     <header
       ref="header" 
-      :style="{ opacity: $route.name === 'home' ? 0 : 1}"
-      :class="{ sticky: isSticky }" 
+      :style="{ opacity: $route.name === 'home' ? 0 : 1 }"
+      :class="{ sticky: isSticky, primary: $route.name === 'methodology'}" 
       class="app-navbar desktop"
     >
       <router-link to="/">
@@ -94,6 +94,12 @@ $navbar-z-index: 2024
   position: fixed
   top: 0
   background-color: $c-white
+
+.app-navbar.desktop.primary
+  background-color: $c-primary
+
+  div
+    color: $c-white
 
 .app-navbar.desktop .app-logo
   height: 32px

@@ -1,9 +1,12 @@
 <template>
-  <footer class="app-footer desktop">
+  <footer 
+    :class="{ primary: $route.name === 'methodology' }" 
+    class="app-footer desktop"
+  >
     <div>
       <div class="e-mail">{{ eMail }}</div>
 
-      <app-social-media />
+      <app-social-media :white="$route.name === 'methodology' " />
     </div>
 
     <div>
@@ -49,4 +52,8 @@ export default {
 
   .e-mail
     margin-bottom: 32px
+
+.app-footer.desktop.primary
+  color: $c-white
+  background-color: $c-primary
 </style>

@@ -46,12 +46,12 @@
         <div 
           :key="index" 
           class="step-container" 
+          :class="{ last: index === steps.length }" 
           :style="style.stepsContainers[index - 1]"
         >
           <div 
             ref="steps" 
             :style="style.steps[index - 1]" 
-            :class="{ last: index === steps.length }" 
             class="step"
           >
             {{ steps[index - 1].name }}
@@ -256,9 +256,6 @@ export default {
     +size(250px)
     +d-flex(center, center)
   
-  .step.last
-    margin-bottom: 0
-
   .line
     position: absolute
     height: 8px
@@ -270,6 +267,9 @@ export default {
     margin-bottom: 100px // Temporal...
 
     +d-flex(center)
+
+  .step-container.last
+    margin-bottom: 0
 
   .step-content
     $margin: 32px

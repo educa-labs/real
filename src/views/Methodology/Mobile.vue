@@ -1,6 +1,7 @@
 <template>
   <div class="app-methodology mobile">
     <h1>Metodología</h1>
+
     <div 
       v-for="(step, index) in steps" 
       :key="`step-${index}`"
@@ -96,7 +97,6 @@ export default {
 
 <style lang="sass">
 .app-methodology.mobile
-  padding-top: 128px
   flex-direction: column
   min-height: 100vh
 

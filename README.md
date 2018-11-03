@@ -24,3 +24,9 @@ yarn run test
 ```
 yarn run lint
 ```
+
+# TODO
+Mobile:
+
+- Los botones del footer deberían funcionar. Necesito tener esos datos.
+- Revisar los títulos de secciones, como por ejemplo en metodlogía. Debería tener una clase general apra estilarlos

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-navbar />
+    <app-navbar :absolute="shouldNavbarBeAbsolute" />
 
     <router-view />
 
@@ -16,6 +16,11 @@ export default {
   components: {
     'app-footer': Footer,
     'app-navbar': Navbar,
+  },
+  computed: {
+    shouldNavbarBeAbsolute() {
+      return this.$route.name === 'home';
+    },
   },
 };
 </script>

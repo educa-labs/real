@@ -2,11 +2,11 @@
   <div class="navbar-wrapper mobile">
     <fixed-header 
       :fixed.sync="isSticky" 
-      :threshold="isSticky ? 0 : 128"
+      :threshold="isSticky ? 0 : $store.state.navbar.style.mobile.height"
     >
       <header 
         ref="header" 
-        :style="{ zIndex: style.zIndex + 1 }" 
+        :style="{ zIndex: style.zIndex + 1, height: `${$store.state.navbar.style.mobile.height}px` }" 
         :class="{ open: isOpen, sticky: isSticky || isOpen, transparent: isTransparent }" 
         class="app-navbar mobile"
       >
@@ -27,6 +27,12 @@
         </button>
       </header>
     </fixed-header>
+
+    <div 
+      v-if="!absolute" 
+      class="header-placeholder" 
+      :style="{ height: `${style.height}px` }"
+    />
 
     <transition 
       name="slide" 
@@ -59,12 +65,6 @@
             >
               <div>Metodología</div>
             </router-link>
-            <router-link 
-              to="/contact" 
-              @click.native="toggle"
-            >
-              <div>Contacto</div>
-            </router-link>
           </div>
 
           <div class="contact">
@@ -85,12 +85,19 @@ import FixedHeader from 'vue-fixed-header';
 
 export default {
   components: { 'app-button': Button, 'fixed-header': FixedHeader, },
+  props: {
+    absolute: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       isOpen: false,
       isSticky: false,
       isTransparent: false,
       style: {
+        height: 0,
         zIndex: 2024,
       },
     };
@@ -112,6 +119,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.updateHeaderHeight();
+  },
   methods: {
     open() {
       this.isOpen = true;
@@ -127,6 +137,10 @@ export default {
         this.close();
       }
     },
+    updateHeaderHeight() {
+      if (this.$refs.header)
+        this.style.height = this.$refs.header.clientHeight;
+    },
   },
 };
 </script>
@@ -137,7 +151,7 @@ $navbar-height: 128px
 .app-navbar.mobile
   position: absolute
   width: 100%
-  padding: 32px
+  padding: 0 32px
   transition: background-color .1s
   
   +d-flex(center, space-between)

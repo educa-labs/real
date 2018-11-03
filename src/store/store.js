@@ -8,6 +8,14 @@ export default new Vuex.Store({
     navbar: {
       isSticky: false,
       isOpen: false,
+      style: {
+        desktop: {
+          height: 128,
+        },
+        mobile: {
+          height: 128,
+        },
+      },
     },
   },
   mutations: {
