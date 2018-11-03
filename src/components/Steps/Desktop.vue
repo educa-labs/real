@@ -1,16 +1,46 @@
 <template>
   <div class="app-steps desktop">
-    <template v-for="index in steps.length">
-      <template v-if="index - 1 === 0">
-        <app-step ref="steps" :key="`step-${index}`" :inner-text="`0${index}`" :outer-text="steps[index - 1].name" @update="updateConnections"/>
-      </template>
+    <div class="description">
+      <h1>Metodología</h1>
+      <p>
+        Desarrollamos una metodología ajustable a cada cliente,
+        permitiéndonos comprender en profundidad sus necesidades,
+        llevándonos a plantear parámetros de acción específicos para cada
+        proyecto. Proporcionando soluciones concretas que apuntan a mejorar
+        estratégicamente las marcas con las que trabajamos.
+      </p>
+    </div>
 
-      <template v-else>
-        <div ref="lines" :key="`line-${index}`" :style="style.connections[index - 2]" class="line" />
+    <div class="steps">
+      <template v-for="index in steps.length">
+        <template v-if="index - 1 === 0">
+          <app-step 
+            ref="steps" 
+            :key="`step-${index}`" 
+            :inner-text="`0${index}`" 
+            :outer-text="steps[index - 1].name" 
+            @update="updateConnections"
+          />
+        </template>
 
-        <app-step ref="steps" :key="`step-${index}`" :inner-text="`0${index}`" :outer-text="steps[index - 1].name" @update="updateConnections"/>
+        <template v-else>
+          <div 
+            ref="lines" 
+            :key="`line-${index}`" 
+            :style="style.connections[index - 2]" 
+            class="line"
+          />
+
+          <app-step 
+            ref="steps" 
+            :key="`step-${index}`" 
+            :inner-text="`0${index}`" 
+            :outer-text="steps[index - 1].name" 
+            @update="updateConnections"
+          />
+        </template>
       </template>
-    </template>
+    </div>
   </div>
 </template>
 
@@ -44,8 +74,8 @@ export default {
         },
       ],
       style: {
-        stepsContainers: [{}, {}, {}, {}, {}, {}],
-        steps: [{}, {}, {}, {}, {}, {}],
+        stepsContainers: [{}, {}, {}, {}, {}, {},],
+        steps: [{}, {}, {}, {}, {}, {},],
         connections: [],
       },
       interval: null,
@@ -103,11 +133,27 @@ export default {
 
 <style lang="sass">
 .app-steps.desktop
-  +d-flex(center, space-between)
+  flex-direction: column
+  display: flex
+
+  .steps
+    +d-flex(center, space-between)
+
 
   .line
     position: absolute
     height: 4px
     background-color: $c-primary
     transform-origin: 0% center
+
+  .description
+    display: flex
+    flex-direction: column
+
+  h1
+    margin: 0
+  p
+    font-family: $f-family-secondary
+    margin-bottom: 64px
+    max-width: 450px
 </style>

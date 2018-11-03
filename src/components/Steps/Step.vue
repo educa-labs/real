@@ -1,8 +1,18 @@
 <template>
-
-  <div @mouseover="isActive = true" @mouseout="isActive = false" :style="{ 'z-index': 999 }">
-    <div :class="{ active: isActive }" class="step" ref="step">
-      <div class="circle" ref="circle">
+  <div 
+    :style="{ 'z-index': 999 }" 
+    @mouseover="isActive = true" 
+    @mouseout="isActive = false"
+  >
+    <div 
+      ref="step" 
+      :class="{ active: isActive }" 
+      class="step"
+    >
+      <div 
+        ref="circle" 
+        class="circle"
+      >
         {{ innerText }}
       </div>
 
@@ -39,7 +49,7 @@ export default {
           duration: 200,
           easing: 'easeInOutQuad',
           // bottom: [0, '32px'],
-          translateY: [0, '-32px'],
+          translateY: [0, '-32px',],
           update: () => this.$emit('update'),
         });
       } else if (!value && oldValue) {
@@ -48,7 +58,7 @@ export default {
           duration: 100,
           easing: 'easeInOutQuad',
           // bottom: ['32px', 0],
-          translateY: ['-32px', 0],
+          translateY: ['-32px', 0,],
           update: () => this.$emit('update'),
         });
       }
