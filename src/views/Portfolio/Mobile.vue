@@ -1,18 +1,20 @@
 <template>
-  <div class="portfolio mobile">
-    <div
+  <div class="app-portfolio mobile">
+    <h1>Trabajos</h1>
+
+    <div 
       v-for="(project, index) in projects" 
       :key="`project-${index}`" 
       class="app-project mobile"
     >
       <div 
-        :style="{ 'background-image': `url(${project.image})` }"
-        class="image"
+        :style="{ 'background-image': `url(${project.image})` }" 
+        class="image" 
         @click="open = open !== index ? index : null"
       />
 
       <div 
-        ref="descriptionsWrappers"
+        ref="descriptionsWrappers" 
         class="descriptionWrapper"
       >
         <div 
@@ -31,12 +33,27 @@ export default {
   data() {
     return {
       projects: [
-        { image: require('@images/home/portfolio_1.png'), description: 'Mauris risus risus, ullamcorper eget neque non, rutrum ullamcorper nisl. Suspendisse consequat dignissim sem, nec sagittis tortor pellentesque in.', animation: null, },
-        { image: require('@images/home/portfolio_2.png'), description: 'Donec laoreet porta sapien et fermentum. Etiam tristique ligula vel mattis hendrerit. Mauris maximus varius libero eget interdum. Nullam pulvinar lobortis risus vitae pulvinar.', animation: null, },
-        { image: require('@images/home/portfolio_3.png'), description: 'Donec laoreet porta sapien et fermentum. Etiam tristique ligula vel mattis hendrerit. Mauris maximus varius libero eget interdum. Nullam pulvinar lobortis risus vitae pulvinar.', animation: null, },
+        {
+          image: require('@images/home/portfolio_1.png'),
+          description:
+            'Mauris risus risus, ullamcorper eget neque non, rutrum ullamcorper nisl. Suspendisse consequat dignissim sem, nec sagittis tortor pellentesque in.',
+          animation: null,
+        },
+        {
+          image: require('@images/home/portfolio_2.png'),
+          description:
+            'Donec laoreet porta sapien et fermentum. Etiam tristique ligula vel mattis hendrerit. Mauris maximus varius libero eget interdum. Nullam pulvinar lobortis risus vitae pulvinar.',
+          animation: null,
+        },
+        {
+          image: require('@images/home/portfolio_3.png'),
+          description:
+            'Donec laoreet porta sapien et fermentum. Etiam tristique ligula vel mattis hendrerit. Mauris maximus varius libero eget interdum. Nullam pulvinar lobortis risus vitae pulvinar.',
+          animation: null,
+        },
       ],
       open: null,
-    }
+    };
   },
   watch: {
     open(newValue, oldValue) {
@@ -59,7 +76,7 @@ export default {
         duration: 500,
         easing: 'easeInOutQuad',
         height: [0, height,],
-      })
+      });
     },
     animateClosure(index) {
       const project = this.projects[index];
@@ -73,13 +90,19 @@ export default {
         duration: 500,
         easing: 'easeInOutQuad',
         height: [height, 0,],
-      })
+      });
     },
   },
 };
 </script>
 
 <style lang="sass">
+.app-portfolio.mobile
+  h1
+    width: 100%
+    padding-left: 48px
+    margin-bottom: 48px
+
 .app-project.mobile
   .image
     width: 100%

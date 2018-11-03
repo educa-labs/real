@@ -75,8 +75,8 @@ export default {
 
 <style lang="sass">
 .app-us.mobile
-  padding-top: 128px
-
   .section-title
+    width: 100%
     padding-left: 48px
+    margin-bottom: 48px
 </style>
